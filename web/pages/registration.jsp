@@ -8,182 +8,171 @@
 ﻿<!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Form Validation | Bootstrap Based Admin Template - Material Design</title>
-    <!-- Favicon-->
-    <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>Form Validation | Bootstrap Based Admin Template - Material Design</title>
+        <!-- Favicon-->
+        <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <!-- Bootstrap Core Css -->
-    <link href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Bootstrap Core Css -->
+        <link href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Waves Effect Css -->
-    <link href="${pageContext.request.contextPath}/plugins/node-waves/waves.css" rel="stylesheet" />
+        <!-- Waves Effect Css -->
+        <link href="${pageContext.request.contextPath}/plugins/node-waves/waves.css" rel="stylesheet" />
 
-    <!-- Animation Css -->
-    <link href="${pageContext.request.contextPath}/plugins/animate-css/animate.css" rel="stylesheet" />
+        <!-- Animation Css -->
+        <link href="${pageContext.request.contextPath}/plugins/animate-css/animate.css" rel="stylesheet" />
 
-    <!-- Sweet Alert Css -->
-    <link href="${pageContext.request.contextPath}/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+        <!-- Sweet Alert Css -->
+        <link href="${pageContext.request.contextPath}/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
-    <!-- Custom Css -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+        <!-- Custom Css -->
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="${pageContext.request.contextPath}/css/themes/all-themes.css" rel="stylesheet" />
-</head>
+        <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+        <link href="${pageContext.request.contextPath}/css/themes/all-themes.css" rel="stylesheet" />
+    </head>
 
-<body class="theme-red">
-    <!-- Page Loader -->
-   <jsp:include page="../include/header.jsp"/>
-    <!-- #Top Bar -->
-    <section>
-        <!-- Start Sidebar -->
-       <jsp:include page="../include/left-panel.jsp"/>
-        <!-- #END#  Sidebar -->
-    </section>
+    <body class="theme-red">
+        <!-- Page Loader -->
+        <jsp:include page="../include/header.jsp"/>
+        <!-- #Top Bar -->
+        <section>
+            <!-- Start Sidebar -->
+            <jsp:include page="../include/left-panel.jsp"/>
+            <!-- #END#  Sidebar -->
+        </section>
 
-    <section class="content">
-        <div class="container-fluid">
-          
-            <!-- Basic Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>New Registration</h2>
-<!--                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>-->
-                        </div>
-                        <div class="body">
-                            <form id="form_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">First Name</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="surname" required>
-                                        <label class="form-label">Last Name</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="radio" name="gender" id="male" class="with-gap">
-                                    <label for="male">Male</label>
+        <section class="content">
+            <div class="container-fluid">
 
-                                    <input type="radio" name="gender" id="female" class="with-gap">
-                                    <label for="female" class="m-l-20">Female</label>
-                                </div>
-                                
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Email ID</label>
-                                    </div>
-                                </div>
-                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Mobile</label>
-                                    </div>
-                                </div>
-                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Date of birth</label>
-                                    </div>
-                                </div>
-                                      <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Passport Number</label>
-                                    </div>
-                                </div>
-                           
-                            <div class="row clearfix">
-                                <div class="col-sm-6">
-                                    <select class="form-control show-tick">
-                                        <option value="">-- Please select --</option>
-                                        <option value="10">S.S.C</option>
-                                        <option value="20">Intermediate</option>
-                                        <option value="30">Diploma</option>
-                                        <option value="40">Graduation</option>
-                                        <option value="50">Post Graduation</option>
-                                        <option value="60">Others</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6">
-<!--                                    <select class="form-control" disabled>
-                                        <option value="">Disabled</option>
-                                        <option value="10">S.S.C</option>
-                                        <option value="20">Intermediate</option>
-                                        <option value="30">Diploma</option>
-                                        <option value="40">Graduation</option>
-                                        <option value="50">Post Graduation</option>
-                                        <option value="60">Others</option>-->
-                                    </select>
-                                </div>
+                <!-- Basic Validation -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>New Registration</h2>
+                                <!--                            <ul class="header-dropdown m-r--5">
+                                                                <li class="dropdown">
+                                                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="material-icons">more_vert</i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu pull-right">
+                                                                        <li><a href="javascript:void(0);">Action</a></li>
+                                                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>-->
                             </div>
-                        </div>
-                                      <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Total Experience</label>
+                            <div class="body">
+                                <form id="form_validation" method="POST">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="name" required>
+                                            <label class="form-label">First Name</label>
+                                        </div>
                                     </div>
-                                </div>
-                                      <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Gulf Experience</label>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="surname" required>
+                                            <label class="form-label">Last Name</label>
+                                        </div>
                                     </div>
-                                      </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Indian Experience</label>
+                                    <div class="form-group">
+                                        <input type="radio" name="gender" id="male" class="with-gap">
+                                        <label for="male">Male</label>
+
+                                        <input type="radio" name="gender" id="female" class="with-gap">
+                                        <label for="female" class="m-l-20">Female</label>
                                     </div>
-                                </div>
-                                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
-                                        <label class="form-label">Home Address</label>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="email" class="form-control" name="email" required>
+                                            <label class="form-label">Email ID</label>
+                                        </div>
                                     </div>
-                                </div>
-                               
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label">Description</label>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Mobile</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">Password</label>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Date of birth</label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Passport Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        
+                                            <select path="country" id="country" class="form-control input-sm">
+                                                <option value="">Select</option>
+                                                <option value="">Bsc</option>
+                                                <option value="">BTech</option>
+                                                <option value="">Mca</option>
+                                                <option value="">BCA</option>
+                                                <option value="">Diploma</option> 
+                                                <option value="">Other</option> 
+                                            </select>
+                                      
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Total Experience</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Gulf Experience</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Indian Experience</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="email" required>
+                                            <label class="form-label">Home Address</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
+                                            <label class="form-label">Description</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="password" class="form-control" name="password" required>
+                                            <label class="form-label">Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" id="checkbox" name="checkbox">
+                                        <label for="checkbox">I have read and accept the terms</label>
+                                    </div>
+                            </div>
+
+                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
                     </div>
