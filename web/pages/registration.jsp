@@ -84,12 +84,6 @@
                                         <label class="form-label">Last Name</label>
                                     </div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Email ID</label>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <input type="radio" name="gender" id="male" class="with-gap">
                                     <label for="male">Male</label>
@@ -97,6 +91,82 @@
                                     <input type="radio" name="gender" id="female" class="with-gap">
                                     <label for="female" class="m-l-20">Female</label>
                                 </div>
+                                
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="email" class="form-control" name="email" required>
+                                        <label class="form-label">Email ID</label>
+                                    </div>
+                                </div>
+                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Mobile</label>
+                                    </div>
+                                </div>
+                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Date of birth</label>
+                                    </div>
+                                </div>
+                                      <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Passport Number</label>
+                                    </div>
+                                </div>
+                           
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <select class="form-control show-tick">
+                                        <option value="">-- Please select --</option>
+                                        <option value="10">S.S.C</option>
+                                        <option value="20">Intermediate</option>
+                                        <option value="30">Diploma</option>
+                                        <option value="40">Graduation</option>
+                                        <option value="50">Post Graduation</option>
+                                        <option value="60">Others</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+<!--                                    <select class="form-control" disabled>
+                                        <option value="">Disabled</option>
+                                        <option value="10">S.S.C</option>
+                                        <option value="20">Intermediate</option>
+                                        <option value="30">Diploma</option>
+                                        <option value="40">Graduation</option>
+                                        <option value="50">Post Graduation</option>
+                                        <option value="60">Others</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                                      <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Total Experience</label>
+                                    </div>
+                                </div>
+                                      <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Gulf Experience</label>
+                                    </div>
+                                      </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Indian Experience</label>
+                                    </div>
+                                </div>
+                                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="email" required>
+                                        <label class="form-label">Home Address</label>
+                                    </div>
+                                </div>
+                               
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
