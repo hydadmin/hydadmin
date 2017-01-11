@@ -792,83 +792,148 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Changelogs -->
-            <div class="block-header">
-                <h2>CHANGELOGS</h2>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                v1.0.4
-                                <small>15th November 2016</small>
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <p>- Fix Preloader IE10+ & Edge display error</p>
+            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydcandidate/register" method="post">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <h2>Register form</h2>
+                    </div>
+                    <label class="control-label col-md-4" for="firstName">First Name</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="firstname"  placeholder="First Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Last Name</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="lastname"  placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Mobile Number</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="mobileno" placeholder="Mobile Number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Gender</label>
+                    <div class="col-md-4">          
+                        <div class="radios">
+                            <label class="radio-inline"> 
+                                <input  type="radio"  value="male" name="gender"> Male
+                            </label>
+                            <label class="radio-inline"> 
+                                <input  type="radio"  value="female" name="gender"> Female
+                            </label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                v1.0.3
-                                <small>19th August 2016</small>
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <p>- Documentation has been improved</p>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Email</label>
+                    <div class="col-md-4">          
+                        <input type="email" class="form-control" name="emailid" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Date of Birth</label>
+                    <div class="col-md-4">          
+                        <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                            <input class="form-control" type="text" name="dateofbirth" readonly />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                v1.0.2
-                                <small>18th August 2016</small>
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <p>- Fixed IE 10</p>
-                            <p>- Documentation has been published</p>
-                        </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Passport Number</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
                     </div>
                 </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                v1.0.1
-                                <small>17th August 2016</small>
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <p>- Fixed IE 10&11 support issues</p>
-                            <p>- Add browser support class to html (You can write run only specified browsers)</p>
-                        </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Religion</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="religion" placeholder="Religion">
                     </div>
                 </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>v1.0.0</h2>
-                        </div>
-                        <div class="body">
-                            Version 1.0.0 released on 16th August 2016.
-                        </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Education</label>
+                    <div class="col-md-4">          
+                        <select  name="qualification" class="form-control input-sm">
+                            <option value="">Select</option>
+                            <option value="BSC">BSC</option>
+                            <option value="BTECH">BTECH</option>
+                            <option value="MCA">MCA</option>
+                            <option value="BCOM">BCOM</option>
+                            <option value="DIPLOMA">DIPLOMA</option> 
+                            <option value="ITI">ITI</option> 
+                            <option value="Other">Other</option> 
+                        </select>
                     </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Designation</label>
+                    <div class="col-md-4">          
+                        <select  name="designation" class="form-control input-sm">
+                            <option value="">Select</option>
+                            <option value="Safety Officer">Safety Officer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Total Experience</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="totalexp" placeholder="Total Experience">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Gulf Experience</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="gulfexp" placeholder="Gulf Experience">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd"name>Indian Experience</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="indianexp" placeholder="Indian Experience">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Home Address</label>
+                    <div class="col-md-4">          
+                        <input type="text" class="form-control" name="address" placeholder="Home address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Country</label>
+                    <div class="col-md-4">          
+                        <select name="country" class="form-control input-sm countries" id="countryId">
+                            <option value="">Select Country:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">State</label>
+                    <div class="col-md-4">          
+                        <select name="state" class="form-control input-sm states" id="stateId">
+                            <option value="">Select State:</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">City</label>
+                    <div class="col-md-4">          
+                        <select name="city" class="form-control input-sm cities" id="cityId">
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-actions col-md-offset-6">
+                        <input type="submit" value="Register" class="btn btn-primary btn-sm">
+                    </div>
+                </div>
+                <br>
+            </form>
         </div>
     </section>
 
