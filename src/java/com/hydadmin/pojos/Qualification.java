@@ -11,17 +11,18 @@ package com.hydadmin.pojos;
  * @author Mirza
  */
 public class Qualification {
-    private String qualificationame;
+    private String qualificationname;
 
     public Qualification() {
     }
-    
-    public String getQualificationame() {
-        return qualificationame;
+
+    public String getQualificationname() {
+        return qualificationname;
     }
 
-    public void setQualificationame(String qualificationame) {
-        this.qualificationame = qualificationame;
+    public void setQualificationname(String qualificationname) {
+        this.qualificationname = qualificationname;
     }
     
+  
 }

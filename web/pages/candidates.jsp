@@ -88,6 +88,7 @@
                                             <th>Mobile No</th>
                                             <th>Passport No</th>
                                             <th>Qualification</th>
+                                            <th>Designation</th>
                                             <th>Total Exp</th>
                                             <th>City</th>
                                             <th>Actions</th>
@@ -102,6 +103,7 @@
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
                                                 <td><s:property value="#ac.qualification"/></td>
+                                                <td><s:property value="#ac.designation"/></td>
                                                 <td><s:property value="#ac.totalexp"/></td>
                                                 <td><s:property value="#ac.city"/></td>
                                                 <td><a class="btn btn-primary">Approve</a></td>

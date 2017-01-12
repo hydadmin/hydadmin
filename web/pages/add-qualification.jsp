@@ -35,7 +35,7 @@
                     </div>
                     <label class="control-label col-md-4" for="firstName">Qualification Name</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" name="designationame"  placeholder="Qualification Name">
+                        <input type="text" class="form-control" name="qualificationname"  placeholder="Qualification Name">
                     </div>
                 </div>
               

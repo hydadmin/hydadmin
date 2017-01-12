@@ -49,7 +49,7 @@ public class QualificationAction {
 
     public String addQualification() {
         Qualification qualification = new Qualification();
-        qualification.setQualificationame(qualificationname);
+        qualification.setQualificationname(qualificationname);
         mdao.addQualification(qualification);
         getAllQualifications();
         return SUCCESS;
