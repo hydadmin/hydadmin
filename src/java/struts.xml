@@ -34,10 +34,10 @@
             <result name="success">add-opening.jsp</result>
         </action>
          <action name="add-opening" class="com.hydadmin.actions.OpeningAction" method="addOpening">
-            <result name="success">opening.jsp</result>
+            <result name="success">openings.jsp</result>
         </action>
          <action name="all-openings" class="com.hydadmin.actions.OpeningAction" method="getAllOpenings">
-            <result name="success">opening.jsp</result>
+            <result name="success">openings.jsp</result>
         </action>
     </package>
 </struts>

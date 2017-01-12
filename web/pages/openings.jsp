@@ -67,7 +67,7 @@
                                     Openings
                                 </h2>
                                 <br>
-                                <a href="#" class="btn btn-info">Add Opening</a>
+                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-opening" class="btn btn-info">Add Opening</a>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -96,16 +96,16 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="allcandidates" var="ac">
+                                        <s:iterator value="openinglist" var="ol">
                                             <tr>
-                                                <td></td>
-                                                <td><s:property value="#ac.jobcode"/></td>
-                                                <td><s:property value="#ac.jobtitle"/></td>
-                                                <td><s:property value="#ac.companyname"/></td>
-                                                <td><s:property value="#ac.interviewtype"/></td>
-                                                <td><s:property value="#ac.experience"/></td>
-                                                <td><s:property value="#ac.location"/></td>
-                                                <td><a class="btn btn-primary">Approve</a></td>
+                                               
+                                                <td><s:property value="#ol.jobcode"/></td>
+                                                <td><s:property value="#ol.jobtitle"/></td>
+                                                <td><s:property value="#ol.companyname"/></td>
+                                                <td><s:property value="#ol.interviewtype"/></td>
+                                                <td><s:property value="#ol.experience"/></td>
+                                                <td><s:property value="#ol.location"/></td>
+                                                <td><a class="btn btn-primary">Delete</a></td>
                                                 
                                             </tr>
                                         </s:iterator>

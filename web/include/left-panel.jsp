@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-qualifications">
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
                             <i class="material-icons">donut_large</i>
                             <span>Openings</span>
                         </a>

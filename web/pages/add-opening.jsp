@@ -39,7 +39,7 @@
         <div class="container" >
             <div class="col-md-5">
             </div>
-            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/register" method="post">
+            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/add-opening" method="post">
                 <div class="form-group">
                     <div class="col-md-3">
                         <h2>Openings</h2>
@@ -65,7 +65,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Interview Type</label>
                     <div class="col-md-4">          
-                        <input type="email" class="form-control" name="interviewtype" placeholder="Interview Type">
+                        <input type="text" class="form-control" name="interviewtype" placeholder="Interview Type">
                     </div>
                 </div>
                 
