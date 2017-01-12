@@ -6,6 +6,7 @@ import com.hydadmin.pojos.Status;
 import com.hydadmin.pojos.Country;
 import com.hydadmin.pojos.City;
 import com.hydadmin.pojos.Candidate;
+import com.hydadmin.pojos.Opening;
 import com.hydadmin.pojos.Paidstatus;
 import com.hydadmin.pojos.State;
 import com.hydadmin.utilities.SpringMongoConfig;
@@ -33,6 +34,10 @@ public class MastersDAO {
 
     public String addCandidate(Candidate candidateObj) {
         mongoOperation.save(candidateObj);
+        return "success";
+    }
+    public String addOpening(Opening openingObj) {
+        mongoOperation.save(openingObj);
         return "success";
     }
 
@@ -99,6 +104,10 @@ public class MastersDAO {
       public List<Designation> getAllDesignations() {
         List<Designation> designationlist = mongoOperation.findAll(Designation.class);
         return designationlist;
+    }
+      public List<Opening> getAllOpenings() {
+        List<Opening> openinglist = mongoOperation.findAll(Opening.class);
+        return openinglist;
     }
       
        public String addDesignation(Designation designationObj) {

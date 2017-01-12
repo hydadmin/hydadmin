@@ -64,6 +64,12 @@
                             <span>Qualifications</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-qualifications">
+                            <i class="material-icons">donut_large</i>
+                            <span>Openings</span>
+                        </a>
+                    </li>
                         </ul>
                     </li>
                     <li>
