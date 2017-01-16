@@ -48,7 +48,7 @@
             <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/register" method="post">
                 <div class="form-group">
                     <div class="col-md-3">
-                        <h2>Add-Admin</h2>
+                        <h2>edit-recruiter</h2>
                     </div>
                     <label class="control-label col-md-4" for="firstName">First Name</label>
                     <div class="col-md-4">
@@ -167,7 +167,7 @@
                         </select>
                     </div>
                 </div>
-
+                
                 <div class="row">
                     <div class="form-actions col-md-offset-6">
                         <input type="submit" value="Register" class="btn btn-primary btn-sm">
@@ -180,15 +180,3 @@
    
 </html>	
 
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>

@@ -49,7 +49,7 @@
             <!-- #END#  Sidebar -->
         </section>
 
-        <section class="content">
+            <section class="content">
             <div class="container-fluid">
                 <!--            <div class="block-header">
                                 <h2>
@@ -57,7 +57,6 @@
                                     <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                                 </h2>
                             </div>-->
-
                 <!-- Exportable Table -->
                 <div class="row clearfix" style="min-height: 500px">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -85,12 +84,13 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Job code</th>
-                                            <th>Job title</th>
-                                            <th>Company Name</th>
-                                            <th>Interview type</th>
-                                            <th>Experience</th>
-                                            <th>Location</th>                                              
+                                            <th>Name</th>
+                                            <th>Mobile NO</th>
+                                            <th>Email ID</th>
+                                            <th>DOB</th>
+                                            <th>Qualification</th>
+                                            <th>State</th>                                              
+                                            <th>City</th>                                              
                                             <th>Actions</th>                                              
                                         </tr>
                                     </thead>
@@ -99,24 +99,24 @@
                                         <s:iterator value="openinglist" var="ol">
                                             <tr>
                                                
-                                                <td><s:property value="#ol.jobcode"/></td>
-                                                <td><s:property value="#ol.jobtitle"/></td>
-                                                <td><s:property value="#ol.companyname"/></td>
-                                                <td><s:property value="#ol.interviewtype"/></td>
-                                                <td><s:property value="#ol.experience"/></td>
-                                                <td><s:property value="#ol.location"/></td>
-                                                <td><a class="btn btn-primary">Delete</a></td>
-                                                
-                                            </tr>
-                                        </s:iterator>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+            <td><s:property value="#ol.firstname"/> <s:property value="#ol.lastname"/> </td>
+                                <td><s:property value="#ol.mobileno"/></td>
+                                <td><s:property value="#ol.emailid"/></td>
+                                <td><s:property value="#ol.dateofbirth"/></td>
+                                <td><s:property value="#ol.qualification"/></td>
+                                <td><s:property value="#ol.state"/></td>
+                                <td><s:property value="#ol.city"/></td>
+                                <td><a class="btn btn-primary">Delete</a></td>            
+                        </tr>
+                    </s:iterator>
+                    </tbody>
+                    </table>
                     </div>
                 </div>
-                <!-- #END# Exportable Table -->
             </div>
+        </div>
+    <!-- #END# Exportable Table -->
+    </div>
         </section>
 
         <!-- Jquery Core Js -->

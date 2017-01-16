@@ -85,12 +85,13 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>Job code</th>
-                                            <th>Job title</th>
-                                            <th>Company Name</th>
-                                            <th>Interview type</th>
-                                            <th>Experience</th>
-                                            <th>Location</th>                                              
+                                            <th>Name</th>
+                                            <th>Mobile NO</th>
+                                            <th>Email ID</th>
+                                            <th>DOB</th>
+                                            <th>Qualification</th>
+                                            <th>State</th>                                              
+                                            <th>City</th>                                              
                                             <th>Actions</th>                                              
                                         </tr>
                                     </thead>
@@ -99,12 +100,13 @@
                                         <s:iterator value="openinglist" var="ol">
                                             <tr>
                                                
-                                                <td><s:property value="#ol.jobcode"/></td>
-                                                <td><s:property value="#ol.jobtitle"/></td>
-                                                <td><s:property value="#ol.companyname"/></td>
-                                                <td><s:property value="#ol.interviewtype"/></td>
-                                                <td><s:property value="#ol.experience"/></td>
-                                                <td><s:property value="#ol.location"/></td>
+                                                <td><s:property value="#ol.firstname"/> <s:property value="#ol.lastname"/> </td>
+                                                <td><s:property value="#ol.mobileno"/></td>
+                                                <td><s:property value="#ol.emailid"/></td>
+                                                <td><s:property value="#ol.dateofbirth"/></td>
+                                                <td><s:property value="#ol.qualification"/></td>
+                                                <td><s:property value="#ol.state"/></td>
+                                                <td><s:property value="#ol.city"/></td>
                                                 <td><a class="btn btn-primary">Delete</a></td>
                                                 
                                             </tr>
