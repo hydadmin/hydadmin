@@ -49,7 +49,7 @@
             <!-- #END#  Sidebar -->
         </section>
 
-            <section class="content">
+        <section class="content">
             <div class="container-fluid">
                 <!--            <div class="block-header">
                                 <h2>
@@ -63,10 +63,10 @@
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Openings
+                                    Managers
                                 </h2>
                                 <br>
-                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-opening" class="btn btn-info">Add Opening</a>
+                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-manager" class="btn btn-info">Add Manager</a>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -96,27 +96,27 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="openinglist" var="ol">
+                                        <s:iterator value="managerlist" var="ol">
                                             <tr>
-                                               
-            <td><s:property value="#ol.firstname"/> <s:property value="#ol.lastname"/> </td>
-                                <td><s:property value="#ol.mobileno"/></td>
-                                <td><s:property value="#ol.emailid"/></td>
-                                <td><s:property value="#ol.dateofbirth"/></td>
-                                <td><s:property value="#ol.qualification"/></td>
-                                <td><s:property value="#ol.state"/></td>
-                                <td><s:property value="#ol.city"/></td>
-                                <td><a class="btn btn-primary">Delete</a></td>            
-                        </tr>
-                    </s:iterator>
-                    </tbody>
-                    </table>
+
+                                                <td><s:property value="#ol.firstname"/> <s:property value="#ol.lastname"/> </td>
+                                                <td><s:property value="#ol.mobileno"/></td>
+                                                <td><s:property value="#ol.emailid"/></td>
+                                                <td><s:property value="#ol.dateofbirth"/></td>
+                                                <td><s:property value="#ol.qualificationid.qualificationname"/></td>
+                                                <td><s:property value="#ol.state"/></td>
+                                                <td><s:property value="#ol.city"/></td>
+                                                <td><a class="btn btn-primary">Delete</a></td>            
+                                            </tr>
+                                        </s:iterator>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- #END# Exportable Table -->
             </div>
-        </div>
-    <!-- #END# Exportable Table -->
-    </div>
         </section>
 
         <!-- Jquery Core Js -->

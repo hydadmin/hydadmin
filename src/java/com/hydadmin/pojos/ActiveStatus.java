@@ -8,16 +8,14 @@ package com.hydadmin.pojos;
 
 /**
  *
- * @author Mirza
+ * @author Shaik Wahed
  */
-public class State {
+public class ActiveStatus {
     private String _id;
-    private String statename;
+    private String statusname;
 
-    public State() {
+    public ActiveStatus() {
     }
-
-    
 
     public String getId() {
         return _id;
@@ -27,12 +25,12 @@ public class State {
         this._id = _id;
     }
 
-    public String getStatename() {
-        return statename;
+    public String getStatusname() {
+        return statusname;
     }
 
-    public void setStatename(String statename) {
-        this.statename = statename;
+    public void setStatusname(String statusname) {
+        this.statusname = statusname;
     }
     
 }

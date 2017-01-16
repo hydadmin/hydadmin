@@ -11,6 +11,7 @@ package com.hydadmin.pojos;
  * @author Shaik Wahed
  */
 public class Opening {
+    private String _id;
     private String jobcode;
     private String jobtitle;
     private String companyname;
@@ -19,6 +20,14 @@ public class Opening {
     private String location;
     private String statusname;
 
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+    
     public String getJobcode() {
         return jobcode;
     }

@@ -11,11 +11,20 @@ package com.hydadmin.pojos;
  * @author Mirza
  */
 public class City {
+    private String _id;
     private String cityname;
 
     public City() {
     }
 
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+    
     public String getCityname() {
         return cityname;
     }

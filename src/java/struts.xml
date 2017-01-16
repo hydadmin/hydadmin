@@ -39,5 +39,14 @@
          <action name="all-openings" class="com.hydadmin.actions.OpeningAction" method="getAllOpenings">
             <result name="success">openings.jsp</result>
         </action>
+         <action name="to-add-manager" class="com.hydadmin.actions.ManagerAction" method="toAddManager">
+            <result name="success">add-manager.jsp</result>
+        </action>
+         <action name="add-manager" class="com.hydadmin.actions.ManagerAction" method="addManager">
+            <result name="success">manager.jsp</result>
+        </action>
+         <action name="all-managers" class="com.hydadmin.actions.ManagerAction" method="getAllManagers">
+            <result name="success">manager.jsp</result>
+        </action>
     </package>
 </struts>

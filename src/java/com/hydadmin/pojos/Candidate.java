@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Mirza
  */
 public class Candidate {
-    private String id;
+    private String _id;
     private String firstname;
     private String lastname;
     private String mobileno;
@@ -29,7 +29,7 @@ public class Candidate {
     private String indianexp;
     private String applicationid;
     private String receiptno;
-    private Paidstatus pstatusid;
+    private PaidStatus pstatusid;
     private Status statusid;
     private Date receiptissuedate;
     private Date receiptexpirydate;
@@ -42,11 +42,11 @@ public class Candidate {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String _id) {
+        this._id = _id;
     }
 
     public String getFirstname() {
@@ -173,11 +173,11 @@ public class Candidate {
         this.receiptno = receiptno;
     }
 
-    public Paidstatus getPstatusid() {
+    public PaidStatus getPstatusid() {
         return pstatusid;
     }
 
-    public void setPstatusid(Paidstatus pstatusid) {
+    public void setPstatusid(PaidStatus pstatusid) {
         this.pstatusid = pstatusid;
     }
 

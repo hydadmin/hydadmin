@@ -30,7 +30,7 @@
 
         </script>
     
-        <script src="http://iamrohit.in/lab/js/location.js"></script>
+         <script src="../js/location.js"></script>
 
     </head>
 

@@ -110,12 +110,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="pwd">Passport Number</label>
-                    <div class="col-md-4">          
-                        <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Religion</label>
                     <div class="col-md-4">          
                         <input type="text" class="form-control" name="religion" placeholder="Religion">

@@ -11,11 +11,20 @@ package com.hydadmin.pojos;
  * @author Mirza
  */
 public class Designation {
+    private String _id;
     private String designationame;
 
     public Designation() {
     }
 
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+    
     public String getDesignationame() {
         return designationame;
     }

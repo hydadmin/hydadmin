@@ -71,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-managers">
                             <i class="material-icons">donut_large</i>
                             <span>Manager</span>
                         </a>

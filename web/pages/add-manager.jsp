@@ -1,15 +1,6 @@
-<%-- 
-    Document   : add-admin
-    Created on : 13 Jan, 2017, 2:41:43 PM
-    Author     : Mirza
---%><%-- 
-    Document   : resgistration
-    Created on : 19 Dec, 2016, 6:56:32 PM
-    Author     : Mirza
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -33,19 +24,19 @@
             });
 
         </script>
-    
-        <script src="http://iamrohit.in/lab/js/location.js"></script>
+
+        <script src="../js/location.js"></script>
 
     </head>
 
 
     <body>
-       
+
 
         <div class="container" >
             <div class="col-md-5">
             </div>
-            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/register" method="post">
+            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/add-manager" method="post">
                 <div class="form-group">
                     <div class="col-md-3">
                         <h2>Add-manager</h2>
@@ -61,24 +52,24 @@
                         <input type="text" class="form-control" name="lastname"  placeholder="Last Name">
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">New Password</label>
                     <div class="col-md-4">          
-                        <input type="text" class="form-control" name="newPassword"  placeholder="New Password">
+                        <input type="password" class="form-control" name="newPassword"  placeholder="New Password">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Confirm Password</label>
                     <div class="col-md-4">          
-                        <input type="text" class="form-control" name="confirmpassword"  placeholder="Confirm Password">
+                        <input type="password" class="form-control" name="confirmpassword"  placeholder="Confirm Password">
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Mobile Number</label>
                     <div class="col-md-4">          
-        <input type="text" class="form-control" name="mobileno" placeholder="Mobile Number">
+                        <input type="text" class="form-control" name="mobileno" placeholder="Mobile Number">
                     </div>
                 </div>
                 <div class="form-group">
@@ -104,17 +95,12 @@
                     <label class="control-label col-md-4" for="pwd">Date of Birth</label>
                     <div class="col-md-4">          
                         <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                            <input class="form-control" type="text" name="dateofbirth" readonly />
+                            <input class="form-control" type="text" name="dateofbirthstring" readonly />
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-4" for="pwd">Passport Number</label>
-                    <div class="col-md-4">          
-                        <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Religion</label>
                     <div class="col-md-4">          
@@ -124,19 +110,15 @@
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Qualification</label>
                     <div class="col-md-4">          
-                        <select  name="qualification" class="form-control input-sm">
+                        <select  name="qualificationstring" class="form-control input-sm">
                             <option value="">Select</option>
-                            <option value="BSC">BSC</option>
-                            <option value="BTECH">BTECH</option>
-                            <option value="MCA">MCA</option>
-                            <option value="BCOM">BCOM</option>
-                            <option value="DIPLOMA">DIPLOMA</option> 
-                            <option value="ITI">ITI</option> 
-                            <option value="Other">Other</option> 
+                            <s:iterator value="qualificationlist" var="ql">
+                                <option value="${ql.id}">${ql.qualificationname}</option>
+                            </s:iterator>
                         </select>
                     </div>
                 </div>
-             
+
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Home Address</label>
                     <div class="col-md-4">          
@@ -167,16 +149,28 @@
                         </select>
                     </div>
                 </div>
-
+                 <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Status</label>
+                    <div class="col-md-4">          
+                        <select  name="statusstring" class="form-control input-sm">
+                            <option value="">Select</option>
+                            <s:iterator value="activestatuslist" var="al">
+                                <option value="${al.id}">${al.statusname}</option>
+                            </s:iterator>
+                        </select>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="form-actions col-md-offset-6">
-                        <input type="submit" value="Register" class="btn btn-primary btn-sm">
+                        <input type="submit" value="Add" class="btn btn-primary btn-sm">
+                  
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-managers" class="btn btn-warning btn-sm">Cancel</a>
                     </div>
                 </div>
                 <br>
             </form>
 
         </div>
-   
+
 </html>	
 

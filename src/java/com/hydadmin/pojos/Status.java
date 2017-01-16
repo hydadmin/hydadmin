@@ -11,11 +11,20 @@ package com.hydadmin.pojos;
  * @author Mirza
  */
 public class Status {
+    private String _id;
     private String statusname;
 
     public Status() {
     }
 
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+    
     public String getStatusname() {
         return statusname;
     }

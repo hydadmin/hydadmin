@@ -11,11 +11,20 @@ package com.hydadmin.pojos;
  * @author Mirza
  */
 public class Qualification {
+    private String _id;
     private String qualificationname;
 
     public Qualification() {
     }
 
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+    
     public String getQualificationname() {
         return qualificationname;
     }
