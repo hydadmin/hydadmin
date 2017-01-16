@@ -70,6 +70,24 @@
                             <span>Openings</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
+                            <i class="material-icons">donut_large</i>
+                            <span>Manager</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
+                            <i class="material-icons">donut_large</i>
+                            <span>Admin</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
+                            <i class="material-icons">donut_large</i>
+                            <span>Recruiter</span>
+                        </a>
+                    </li>
                         </ul>
                     </li>
                     <li>
