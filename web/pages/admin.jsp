@@ -64,7 +64,7 @@
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Openings
+                                    Admin
                                 </h2>
                                 <br>
                                 <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-opening" class="btn btn-info">Add Opening</a>
