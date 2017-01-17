@@ -197,6 +197,7 @@ public class ManagerAction {
         manager.setCity(city);
         manager.setStatusid(mdao.getActiveStatusbyId(statusstring));
         mdao.addManager(manager);
+        getAllManagers();
         return SUCCESS;
     }
         
