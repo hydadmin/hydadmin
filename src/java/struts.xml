@@ -9,44 +9,50 @@
         <action name="to-candidates"  class="com.hydadmin.actions.CandidateAction" method="allcandidates">
             <result name="success">candidates.jsp</result>
         </action>
-          <action name="register" class="com.hydadmin.actions.CandidateAction" method="registerCandidate">
+        <action name="register" class="com.hydadmin.actions.CandidateAction" method="registerCandidate">
             <result name="success">candidates.jsp</result>
         </action>
-         <action name="all-designations" class="com.hydadmin.actions.DesignationAction" method="getAllDesignations">
+        <action name="all-designations" class="com.hydadmin.actions.DesignationAction" method="getAllDesignations">
             <result name="success">designation.jsp</result>
         </action>
-         <action name="to-add-designation" class="com.hydadmin.actions.DesignationAction" method="toDesignation">
+        <action name="to-add-designation" class="com.hydadmin.actions.DesignationAction" method="toDesignation">
             <result name="success">add-designation.jsp</result>
         </action>
-         <action name="add-designation" class="com.hydadmin.actions.DesignationAction" method="addDesignation">
+        <action name="add-designation" class="com.hydadmin.actions.DesignationAction" method="addDesignation">
             <result name="success">designation.jsp</result>
         </action>
-         <action name="all-qualifications" class="com.hydadmin.actions.QualificationAction" method="getAllQualifications">
+        <action name="all-qualifications" class="com.hydadmin.actions.QualificationAction" method="getAllQualifications">
             <result name="success">qualification.jsp</result>
         </action>
-         <action name="to-add-qualification" class="com.hydadmin.actions.QualificationAction" method="toQualification">
+        <action name="to-add-qualification" class="com.hydadmin.actions.QualificationAction" method="toQualification">
             <result name="success">add-qualification.jsp</result>
         </action>
-         <action name="add-qualification" class="com.hydadmin.actions.QualificationAction" method="addQualification">
+        <action name="add-qualification" class="com.hydadmin.actions.QualificationAction" method="addQualification">
             <result name="success">qualification.jsp</result>
         </action>
-         <action name="to-add-opening" class="com.hydadmin.actions.OpeningAction" method="toaddOpening">
+        <action name="to-add-opening" class="com.hydadmin.actions.OpeningAction" method="toaddOpening">
             <result name="success">add-opening.jsp</result>
         </action>
-         <action name="add-opening" class="com.hydadmin.actions.OpeningAction" method="addOpening">
+        <action name="add-opening" class="com.hydadmin.actions.OpeningAction" method="addOpening">
             <result name="success">openings.jsp</result>
         </action>
-         <action name="all-openings" class="com.hydadmin.actions.OpeningAction" method="getAllOpenings">
+        <action name="all-openings" class="com.hydadmin.actions.OpeningAction" method="getAllOpenings">
             <result name="success">openings.jsp</result>
         </action>
-         <action name="to-add-manager" class="com.hydadmin.actions.ManagerAction" method="toAddManager">
+        <action name="to-add-manager" class="com.hydadmin.actions.ManagerAction" method="toAddManager">
             <result name="success">add-manager.jsp</result>
         </action>
-         <action name="add-manager" class="com.hydadmin.actions.ManagerAction" method="addManager">
+        <action name="add-manager" class="com.hydadmin.actions.ManagerAction" method="addManager">
             <result name="success">manager.jsp</result>
         </action>
-         <action name="all-managers" class="com.hydadmin.actions.ManagerAction" method="getAllManagers">
+        <action name="all-managers" class="com.hydadmin.actions.ManagerAction" method="getAllManagers">
             <result name="success">manager.jsp</result>
+        </action>
+        <action name="to-add-admin" class="com.hydadmin.actions.AdminAction" method="toAddAdmin">
+            <result name="success">add-admin.jsp</result>
+        </action>
+        <action name="add-admin" class="com.hydadmin.actions.AdminAction" method="toAddAdmin">
+            <result name="success">add-admin.jsp</result>
         </action>
     </package>
 </struts>
