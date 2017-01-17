@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Openings</title>
+        <title>Admin</title>
         <!-- Favicon-->
         <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 
@@ -64,10 +64,10 @@
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Openings
+                                    Admin
                                 </h2>
                                 <br>
-                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-opening" class="btn btn-info">Add Opening</a>
+                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-admin" class="btn btn-info">Add Admin</a>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
