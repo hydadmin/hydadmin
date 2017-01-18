@@ -36,10 +36,10 @@ public class MastersDAO {
         mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
     }
 
-    public List<Manager> getValidateManagers(String mobileno, String password) {
+    public List<Manager> getValidateManagers(String emailid, String password) {
         Query q = new Query();
         List<Manager> managerslist = new ArrayList<Manager>();
-        q.addCriteria(Criteria.where("mobileno").is(mobileno).andOperator(Criteria.where("password").is(password)));
+        q.addCriteria(Criteria.where("emailid").is(emailid).andOperator(Criteria.where("password").is(password)));
         managerslist = mongoOperation.find(q, Manager.class);
         return managerslist;
     }
@@ -49,6 +49,34 @@ public class MastersDAO {
         q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
         Manager managerobj = mongoOperation.findOne(q, Manager.class);
         return managerobj;
+    }
+    public List<Admin> getValidateAdmins(String emailid, String password) {
+        Query q = new Query();
+        List<Admin> adminlist = new ArrayList<Admin>();
+        q.addCriteria(Criteria.where("emailid").is(emailid).andOperator(Criteria.where("password").is(password)));
+        adminlist = mongoOperation.find(q, Admin.class);
+        return adminlist;
+    }
+    
+     public Admin getAdminbyId(String editid) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
+        Admin adminobj = mongoOperation.findOne(q, Admin.class);
+        return adminobj;
+    }
+    public List<Recruiter> getValidateRecruiters(String emailid, String password) {
+        Query q = new Query();
+        List<Recruiter> recruiterlist = new ArrayList<Recruiter>();
+        q.addCriteria(Criteria.where("emailid").is(emailid).andOperator(Criteria.where("password").is(password)));
+        recruiterlist = mongoOperation.find(q, Recruiter.class);
+        return recruiterlist;
+    }
+    
+     public Recruiter getRecruiterbyId(String editid) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
+        Recruiter recruiterobj = mongoOperation.findOne(q, Recruiter.class);
+        return recruiterobj;
     }
      
     public String addCandidate(Candidate candidateObj) {

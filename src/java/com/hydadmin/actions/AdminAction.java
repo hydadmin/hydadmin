@@ -10,17 +10,20 @@ import com.hydadmin.pojos.ActiveStatus;
 import com.hydadmin.pojos.Admin;
 import com.hydadmin.pojos.Qualification;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author Shaik Wahed
  */
-public class AdminAction {
+public class AdminAction extends ActionSupport implements SessionAware {
 
     private String firstname;
     private String lastname;
@@ -28,6 +31,7 @@ public class AdminAction {
     private String gender;
     private String emailid;
     private String dateofbirthstring;
+    private String password;
     private String religion;
     private String qualificationstring;
     private String address;
@@ -38,6 +42,30 @@ public class AdminAction {
     private List<Admin> adminlist = new ArrayList<Admin>();
     private List<Qualification> qualificationlist = new ArrayList<Qualification>();
     private List<ActiveStatus> activestatuslist = new ArrayList<ActiveStatus>();
+
+    private Map sessionmap;
+    private Boolean displaymsg;
+
+    public Boolean getDisplaymsg() {
+        return displaymsg;
+    }
+
+    public void setDisplaymsg(Boolean displaymsg) {
+        this.displaymsg = displaymsg;
+    }
+
+    public Map getSessionmap() {
+        return sessionmap;
+    }
+
+    public void setSessionmap(Map sessionmap) {
+        this.sessionmap = sessionmap;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        this.sessionmap = map;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -85,6 +113,14 @@ public class AdminAction {
 
     public void setDateofbirthstring(String dateofbirthstring) {
         this.dateofbirthstring = dateofbirthstring;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getReligion() {
@@ -169,6 +205,30 @@ public class AdminAction {
 
     MastersDAO mdao = new MastersDAO();
 
+    @Override
+    public String execute() throws Exception {
+        String returnvalue = "";
+        try {
+            List<Admin> adminstatus = mdao.getValidateAdmins(emailid, password);
+            Admin admin = mdao.getAdminbyId(adminstatus.get(0).getId());
+            if (adminstatus != null) {
+                sessionmap.put("adminid", admin.getId());
+                sessionmap.put("emailid", admin.getEmailid());
+                sessionmap.put("adminfn", admin.getFirstname());
+                sessionmap.put("adminln", admin.getLastname());
+                sessionmap.put("mobileno", admin.getMobileno());
+                displaymsg = true;
+                returnvalue = "success";
+            }
+
+        } catch (Exception e) {
+            displaymsg = false;
+            returnvalue = "error";
+        }
+
+        return returnvalue;
+    }
+
     public String toAddAdmin() {
         qualificationlist = mdao.getAllQualifications();
         activestatuslist = mdao.getAllActiveStatus();
@@ -185,6 +245,7 @@ public class AdminAction {
         admin.setGender(gender);
         admin.setEmailid(emailid);
         admin.setDateofbirth(dateofbirths);
+        admin.setPassword(password);
         admin.setReligion(religion);
         admin.setQualificationid(mdao.getQualificationbyId(qualificationstring));
         admin.setCountry(country);

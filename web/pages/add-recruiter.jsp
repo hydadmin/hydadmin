@@ -54,19 +54,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="pwd">New Password</label>
-                    <div class="col-md-4">          
-                        <input type="password" class="form-control" name="newPassword"  placeholder="New Password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-4" for="pwd">Confirm Password</label>
-                    <div class="col-md-4">          
-                        <input type="password" class="form-control" name="confirmpassword"  placeholder="Confirm Password">
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Mobile Number</label>
                     <div class="col-md-4">          
                         <input type="text" class="form-control" name="mobileno" placeholder="Mobile Number">
@@ -100,7 +87,12 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Password</label>
+                    <div class="col-md-4">          
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Religion</label>
                     <div class="col-md-4">          
@@ -149,7 +141,7 @@
                         </select>
                     </div>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Status</label>
                     <div class="col-md-4">          
                         <select  name="statusstring" class="form-control input-sm">
@@ -163,7 +155,7 @@
                 <div class="row">
                     <div class="form-actions col-md-offset-6">
                         <input type="submit" value="Add" class="btn btn-primary btn-sm">
-                  
+
                         <a href="${pagContext.request.contextPath}/hydadmin/pages/all-managers" class="btn btn-warning btn-sm">Cancel</a>
                     </div>
                 </div>

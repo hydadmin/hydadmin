@@ -102,6 +102,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Password</label>
+                    <div class="col-md-4">          
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Religion</label>
                     <div class="col-md-4">          
                         <input type="text" class="form-control" name="religion" placeholder="Religion">

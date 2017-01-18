@@ -20,6 +20,7 @@ public class Admin {
     private String gender;
     private String emailid;
     private Date dateofbirth;
+    private String password;
     private String religion;
     private Qualification qualificationid;
     private String address;
@@ -87,6 +88,14 @@ public class Admin {
         this.dateofbirth = dateofbirth;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public String getReligion() {
         return religion;
     }

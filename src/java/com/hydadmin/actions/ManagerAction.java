@@ -209,12 +209,13 @@ public class ManagerAction extends ActionSupport implements SessionAware {
     public String execute() throws Exception {
         String returnvalue = "";
         try {
-            List<Manager> managerstatus = mdao.getValidateManagers(mobileno, password);
+            List<Manager> managerstatus = mdao.getValidateManagers(emailid, password);
             Manager manager = mdao.getManagerbyId(managerstatus.get(0).getId());
             if (managerstatus != null) {
                 sessionmap.put("managerid", manager.getId());
                 sessionmap.put("emailid", manager.getEmailid());
-                sessionmap.put("managername", manager.getFirstname());
+                sessionmap.put("managerfn", manager.getFirstname());
+                sessionmap.put("managerln", manager.getLastname());
                 sessionmap.put("mobile", manager.getMobileno());
                 displaymsg = true;
                 returnvalue = "success";
@@ -227,7 +228,24 @@ public class ManagerAction extends ActionSupport implements SessionAware {
 
         return returnvalue;
     }
+    
+     public String logout() {
 
+        sessionmap.remove("managerid");
+        sessionmap.remove("adminid");
+        sessionmap.remove("recruiterid");
+        sessionmap.remove("emailid");
+        sessionmap.remove("password");
+        sessionmap.remove("managerfn");
+        sessionmap.remove("managerln");
+        sessionmap.remove("adminfn");
+        sessionmap.remove("adminln");
+        sessionmap.remove("recruiterfn");
+        sessionmap.remove("recruiterln");
+        displaymsg = true;
+        return "success";
+    }
+     
     public String toAddManager() {
         qualificationlist = mdao.getAllQualifications();
         activestatuslist = mdao.getAllActiveStatus();
@@ -244,6 +262,7 @@ public class ManagerAction extends ActionSupport implements SessionAware {
         manager.setGender(gender);
         manager.setEmailid(emailid);
         manager.setDateofbirth(dateofbirths);
+        manager.setPassword(password);
         manager.setReligion(religion);
         manager.setQualificationid(mdao.getQualificationbyId(qualificationstring));
         manager.setCountry(country);
