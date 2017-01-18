@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Openings</title>
+        <title>Recruiters</title>
         <!-- Favicon-->
         <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 
@@ -64,10 +64,10 @@
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Openings
+                                    Recruiters
                                 </h2>
                                 <br>
-                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-opening" class="btn btn-info">Add Opening</a>
+                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-recruiter" class="btn btn-info">Add Recruiter</a>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -97,17 +97,17 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="openinglist" var="ol">
+                                        <s:iterator value="recruiterlist" var="rl">
                                             <tr>
                                                
-                                                <td><s:property value="#ol.firstname"/> <s:property value="#ol.lastname"/> </td>
-                                                <td><s:property value="#ol.mobileno"/></td>
-                                                <td><s:property value="#ol.emailid"/></td>
-                                                <td><s:property value="#ol.dateofbirth"/></td>
-                                                <td><s:property value="#ol.qualification"/></td>
-                                                <td><s:property value="#ol.state"/></td>
-                                                <td><s:property value="#ol.city"/></td>
-                                                <td><a class="btn btn-primary">Delete</a></td>
+                                                <td><s:property value="#rl.firstname"/> <s:property value="#rl.lastname"/> </td>
+                                                <td><s:property value="#rl.mobileno"/></td>
+                                                <td><s:property value="#rl.emailid"/></td>
+                                                <td><s:property value="#rl.dateofbirth"/></td>
+                                                <td><s:property value="#rl.qualificationid.qualificationname"/></td>
+                                                <td><s:property value="#rl.state"/></td>
+                                                <td><s:property value="#rl.city"/></td>
+                                                <td><a class="btn btn-primary">Edit</a></td>
                                                 
                                             </tr>
                                         </s:iterator>

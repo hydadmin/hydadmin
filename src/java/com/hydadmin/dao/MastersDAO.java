@@ -1,6 +1,7 @@
 package com.hydadmin.dao;
 
 import com.hydadmin.pojos.ActiveStatus;
+import com.hydadmin.pojos.Admin;
 import com.hydadmin.pojos.Qualification;
 import com.hydadmin.pojos.Designation;
 import com.hydadmin.pojos.Status;
@@ -9,7 +10,8 @@ import com.hydadmin.pojos.City;
 import com.hydadmin.pojos.Candidate;
 import com.hydadmin.pojos.Manager;
 import com.hydadmin.pojos.Opening;
-import com.hydadmin.pojos.PaidStatus;
+import com.hydadmin.pojos.PaidStatuses;
+import com.hydadmin.pojos.Recruiter;
 import com.hydadmin.pojos.State;
 import com.hydadmin.utilities.SpringMongoConfig;
 import java.util.ArrayList;
@@ -34,6 +36,21 @@ public class MastersDAO {
         mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
     }
 
+    public List<Manager> getValidateManagers(String mobileno, String password) {
+        Query q = new Query();
+        List<Manager> managerslist = new ArrayList<Manager>();
+        q.addCriteria(Criteria.where("mobileno").is(mobileno).andOperator(Criteria.where("password").is(password)));
+        managerslist = mongoOperation.find(q, Manager.class);
+        return managerslist;
+    }
+    
+     public Manager getManagerbyId(String editid) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
+        Manager managerobj = mongoOperation.findOne(q, Manager.class);
+        return managerobj;
+    }
+     
     public String addCandidate(Candidate candidateObj) {
         mongoOperation.save(candidateObj);
         return "success";
@@ -41,6 +58,16 @@ public class MastersDAO {
 
     public String addManager(Manager managerObj) {
         mongoOperation.save(managerObj);
+        return "success";
+    }
+
+    public String addAdmin(Admin adminObj) {
+        mongoOperation.save(adminObj);
+        return "success";
+    }
+
+    public String addRecruiter(Recruiter recruiterObj) {
+        mongoOperation.save(recruiterObj);
         return "success";
     }
 
@@ -70,10 +97,10 @@ public class MastersDAO {
         return designationobj;
     }
 
-    public PaidStatus getPaidstatusbyId(String editid) {
+    public PaidStatuses getPaidstatusbyId(String editid) {
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
-        PaidStatus paidstatusobj = mongoOperation.findOne(q, PaidStatus.class);
+        PaidStatuses paidstatusobj = mongoOperation.findOne(q, PaidStatuses.class);
         return paidstatusobj;
     }
 
@@ -116,7 +143,7 @@ public class MastersDAO {
         List<Candidate> candidatelist = mongoOperation.findAll(Candidate.class);
         return candidatelist;
     }
-    
+
     public List<Manager> getAllManagers() {
         List<Manager> managerlist = mongoOperation.findAll(Manager.class);
         return managerlist;
@@ -141,6 +168,17 @@ public class MastersDAO {
         List<Qualification> qualificationlist = mongoOperation.findAll(Qualification.class);
         return qualificationlist;
     }
+
+    public List<Admin> getAllAdmins() {
+        List<Admin> adminlist = mongoOperation.findAll(Admin.class);
+        return adminlist;
+    }
+
+    public List<Recruiter> getAllRecruiters() {
+        List<Recruiter> recruiterlist = mongoOperation.findAll(Recruiter.class);
+        return recruiterlist;
+    }
+
     public List<ActiveStatus> getAllActiveStatus() {
         List<ActiveStatus> activestatuslist = mongoOperation.findAll(ActiveStatus.class);
         return activestatuslist;

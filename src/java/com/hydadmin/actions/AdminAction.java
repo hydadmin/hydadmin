@@ -10,7 +10,10 @@ import com.hydadmin.pojos.ActiveStatus;
 import com.hydadmin.pojos.Admin;
 import com.hydadmin.pojos.Qualification;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -163,17 +166,40 @@ public class AdminAction {
     public void setActivestatuslist(List<ActiveStatus> activestatuslist) {
         this.activestatuslist = activestatuslist;
     }
-    
+
     MastersDAO mdao = new MastersDAO();
-    
-     public String toAddAdmin() {
-        qualificationlist=mdao.getAllQualifications();
-        activestatuslist=mdao.getAllActiveStatus();
+
+    public String toAddAdmin() {
+        qualificationlist = mdao.getAllQualifications();
+        activestatuslist = mdao.getAllActiveStatus();
         return SUCCESS;
     }
-     
-     public String addAdmin(){
-     return SUCCESS;
-     }
+
+    public String addAdmin() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date dateofbirths = sdf.parse(dateofbirthstring);
+        Admin admin = new Admin();
+        admin.setFirstname(firstname);
+        admin.setLastname(lastname);
+        admin.setMobileno(mobileno);
+        admin.setGender(gender);
+        admin.setEmailid(emailid);
+        admin.setDateofbirth(dateofbirths);
+        admin.setReligion(religion);
+        admin.setQualificationid(mdao.getQualificationbyId(qualificationstring));
+        admin.setCountry(country);
+        admin.setState(state);
+        admin.setAddress(address);
+        admin.setCity(city);
+        admin.setStatusid(mdao.getActiveStatusbyId(statusstring));
+        mdao.addAdmin(admin);
+        getAllAdmins();
+        return SUCCESS;
+    }
+
+    public String getAllAdmins() {
+        adminlist = mdao.getAllAdmins();
+        return SUCCESS;
+    }
 
 }

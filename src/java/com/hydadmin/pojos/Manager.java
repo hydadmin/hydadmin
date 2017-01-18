@@ -19,6 +19,7 @@ public class Manager {
     private String mobileno;
     private String gender;
     private String emailid;
+    private String password;
     private Date dateofbirth;
     private String religion;
     private Qualification qualificationid;
@@ -79,6 +80,14 @@ public class Manager {
         this.emailid = emailid;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public Date getDateofbirth() {
         return dateofbirth;
     }

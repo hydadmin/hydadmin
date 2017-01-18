@@ -10,7 +10,7 @@ import com.hydadmin.pojos.Candidate;
 import com.hydadmin.pojos.City;
 import com.hydadmin.pojos.Country;
 import com.hydadmin.pojos.Designation;
-import com.hydadmin.pojos.PaidStatus;
+import com.hydadmin.pojos.PaidStatuses;
 import com.hydadmin.pojos.Qualification;
 import com.hydadmin.pojos.State;
 import com.hydadmin.pojos.Status;

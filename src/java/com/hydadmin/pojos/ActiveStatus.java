@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.hydadmin.pojos;
 
 /**
@@ -11,6 +10,7 @@ package com.hydadmin.pojos;
  * @author Shaik Wahed
  */
 public class ActiveStatus {
+
     private String _id;
     private String statusname;
 
@@ -32,5 +32,5 @@ public class ActiveStatus {
     public void setStatusname(String statusname) {
         this.statusname = statusname;
     }
-    
+
 }

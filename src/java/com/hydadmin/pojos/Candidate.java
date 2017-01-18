@@ -29,7 +29,7 @@ public class Candidate {
     private String indianexp;
     private String applicationid;
     private String receiptno;
-    private PaidStatus pstatusid;
+    private PaidStatuses pstatusid;
     private Status statusid;
     private Date receiptissuedate;
     private Date receiptexpirydate;
@@ -173,11 +173,11 @@ public class Candidate {
         this.receiptno = receiptno;
     }
 
-    public PaidStatus getPstatusid() {
+    public PaidStatuses getPstatusid() {
         return pstatusid;
     }
 
-    public void setPstatusid(PaidStatus pstatusid) {
+    public void setPstatusid(PaidStatuses pstatusid) {
         this.pstatusid = pstatusid;
     }
 

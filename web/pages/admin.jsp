@@ -97,17 +97,17 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="openinglist" var="ol">
+                                        <s:iterator value="adminlist" var="al">
                                             <tr>
                                                
-                                                <td><s:property value="#ol.firstname"/> <s:property value="#ol.lastname"/> </td>
-                                                <td><s:property value="#ol.mobileno"/></td>
-                                                <td><s:property value="#ol.emailid"/></td>
-                                                <td><s:property value="#ol.dateofbirth"/></td>
-                                                <td><s:property value="#ol.qualification"/></td>
-                                                <td><s:property value="#ol.state"/></td>
-                                                <td><s:property value="#ol.city"/></td>
-                                                <td><a class="btn btn-primary">Delete</a></td>
+                                                <td><s:property value="#al.firstname"/> <s:property value="#al.lastname"/> </td>
+                                                <td><s:property value="#al.mobileno"/></td>
+                                                <td><s:property value="#al.emailid"/></td>
+                                                <td><s:property value="#al.dateofbirth"/></td>
+                                                <td><s:property value="#al.qualificationid.qualificationname"/></td>
+                                                <td><s:property value="#al.state"/></td>
+                                                <td><s:property value="#al.city"/></td>
+                                                <td><a class="btn btn-primary">Edit</a></td>
                                                 
                                             </tr>
                                         </s:iterator>

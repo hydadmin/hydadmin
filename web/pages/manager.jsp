@@ -106,7 +106,7 @@
                                                 <td><s:property value="#ol.qualificationid.qualificationname"/></td>
                                                 <td><s:property value="#ol.state"/></td>
                                                 <td><s:property value="#ol.city"/></td>
-                                                <td><a class="btn btn-primary">Delete</a></td>            
+                                                <td><a class="btn btn-primary">Edit</a></td>            
                                             </tr>
                                         </s:iterator>
                                     </tbody>

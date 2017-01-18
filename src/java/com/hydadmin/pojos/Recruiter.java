@@ -22,6 +22,7 @@ public class Recruiter {
     private Date dateofbirth;
     private String religion;
     private Qualification qualificationid;
+    private String address;
     private String country;
     private String state;
     private String city;
@@ -102,6 +103,14 @@ public class Recruiter {
         this.qualificationid = qualificationid;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
     public String getCountry() {
         return country;
     }
