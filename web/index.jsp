@@ -98,8 +98,7 @@
                                     <tbody>
                                         <s:iterator value="allcandidates" var="ac">
                                             <tr>
-                                                <td></td>
-                                                <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
+                                               <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
                                                 <td><s:property value="#ac.qualification"/></td>
