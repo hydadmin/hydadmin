@@ -73,20 +73,20 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-admins">
                             <i class="material-icons">donut_large</i>
                             <span>Admin</span>
                         </a>
                     </li>
                     <li>
-                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-openings">
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/all-recruiters">
                             <i class="material-icons">donut_large</i>
                             <span>Recruiter</span>
                         </a>
                     </li>
                         </ul>
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">swap_calls</i>
                             <span>User Interface (UI)</span>
@@ -353,7 +353,7 @@
                             <i class="material-icons col-light-blue">donut_large</i>
                             <span>Information</span>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <!-- #Menu -->
