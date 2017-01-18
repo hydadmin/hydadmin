@@ -24,7 +24,9 @@ public class SpringMongoConfig {
 
     public @Bean
     MongoDbFactory mongoDbFactory() throws Exception {
-        MongoClient mongo = new MongoClient("localhost");
+//        MongoClient mongo = new MongoClient("localhost");
+//        SimpleMongoDbFactory simpleMongoDbFactory = new SimpleMongoDbFactory(mongo, "hmp");
+        MongoClient mongo = new MongoClient("192.168.1.6");
         SimpleMongoDbFactory simpleMongoDbFactory = new SimpleMongoDbFactory(mongo, "hmp");
 //        MongoClient mongo = new MongoClient("128.199.64.31");
 //        SimpleMongoDbFactory simpleMongoDbFactory = new SimpleMongoDbFactory(mongo, "truckguru");

@@ -22,7 +22,7 @@
             <result name="success">/login.jsp</result>
         </action>
     </package>
-    <package name="default" namespace="/pages" extends="struts-default">
+    <package name="master" namespace="/pages" extends="struts-default">
         <action name="to-candidates"  class="com.hydadmin.actions.CandidateAction" method="allcandidates">
             <result name="success">candidates.jsp</result>
         </action>
@@ -68,8 +68,20 @@
         <action name="to-add-admin" class="com.hydadmin.actions.AdminAction" method="toAddAdmin">
             <result name="success">add-admin.jsp</result>
         </action>
-        <action name="add-admin" class="com.hydadmin.actions.AdminAction" method="toAddAdmin">
-            <result name="success">add-admin.jsp</result>
+        <action name="add-admin" class="com.hydadmin.actions.AdminAction" method="addAdmin">
+            <result name="success">admin.jsp</result>
+        </action>
+        <action name="all-admins" class="com.hydadmin.actions.AdminAction" method="getAllAdmins">
+            <result name="success">admin.jsp</result>
+        </action>
+        <action name="to-add-recruiter" class="com.hydadmin.actions.RecruiterAction" method="toAddRecruiter">
+            <result name="success">add-recruiter.jsp</result>
+        </action>
+        <action name="add-recruiter" class="com.hydadmin.actions.RecruiterAction" method="addRecruiter">
+            <result name="success">recruiter.jsp</result>
+        </action>
+        <action name="all-recruiters" class="com.hydadmin.actions.RecruiterAction" method="getAllRecruiters">
+            <result name="success">recruiter.jsp</result>
         </action>
     </package>
 </struts>
