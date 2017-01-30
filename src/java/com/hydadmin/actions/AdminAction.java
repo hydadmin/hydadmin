@@ -8,6 +8,7 @@ package com.hydadmin.actions;
 import com.hydadmin.dao.MastersDAO;
 import com.hydadmin.pojos.ActiveStatus;
 import com.hydadmin.pojos.Admin;
+import com.hydadmin.pojos.Candidate;
 import com.hydadmin.pojos.Qualification;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
@@ -45,6 +46,26 @@ public class AdminAction extends ActionSupport implements SessionAware {
 
     private Map sessionmap;
     private Boolean displaymsg;
+    private Boolean addstatus;
+    private List<Candidate> unpaidcandidatelist = new ArrayList<Candidate>();
+
+    public List<Candidate> getUnpaidcandidatelist() {
+        return unpaidcandidatelist;
+    }
+
+    public void setUnpaidcandidatelist(List<Candidate> unpaidcandidatelist) {
+        this.unpaidcandidatelist = unpaidcandidatelist;
+    }
+    
+    
+    
+    public Boolean getAddstatus() {
+        return addstatus;
+    }
+
+    public void setAddstatus(Boolean addstatus) {
+        this.addstatus = addstatus;
+    }
 
     public Boolean getDisplaymsg() {
         return displaymsg;
@@ -217,6 +238,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
                 sessionmap.put("adminfn", admin.getFirstname());
                 sessionmap.put("adminln", admin.getLastname());
                 sessionmap.put("mobileno", admin.getMobileno());
+                getAllUnPaidCandidates();
                 displaymsg = true;
                 returnvalue = "success";
             }
@@ -254,6 +276,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
         admin.setCity(city);
         admin.setStatusid(mdao.getActiveStatusbyId(statusstring));
         mdao.addAdmin(admin);
+        addstatus = true;
         getAllAdmins();
         return SUCCESS;
     }
@@ -262,5 +285,9 @@ public class AdminAction extends ActionSupport implements SessionAware {
         adminlist = mdao.getAllAdmins();
         return SUCCESS;
     }
-
+    
+      public String getAllUnPaidCandidates() {
+        unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
+        return SUCCESS;
+    }
 }

@@ -14,12 +14,18 @@ import com.hydadmin.pojos.PaidStatuses;
 import com.hydadmin.pojos.Qualification;
 import com.hydadmin.pojos.State;
 import com.hydadmin.pojos.Status;
+import com.hydadmin.utilities.MailSender;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.mail.MessagingException;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 /**
  *
@@ -42,7 +48,7 @@ public class CandidateAction {
     private String indianexp;
     private String applicationid;
     private String receiptno;
-    private String pstatusstring;
+    private String statusname;
     private String statusstring;
     private String receiptissuestring;
     private String receiptexpirystring;
@@ -50,14 +56,86 @@ public class CandidateAction {
     private String country;
     private String state;
     private String city;
-    private List<Candidate> allcandidates = new ArrayList<Candidate>();
+    private List<Candidate> paidcandidatelist = new ArrayList<Candidate>();
+    private List<Candidate> unpaidcandidatelist = new ArrayList<Candidate>();
+    private List<Candidate> selectedcandidatelist = new ArrayList<Candidate>();
+    private List<Candidate> rejectedcandidatelist = new ArrayList<Candidate>();
+    private List<Candidate> blockedcandidatelist = new ArrayList<Candidate>();
+    private List<Candidate> notinterestedcandidatelist = new ArrayList<Candidate>();
+    private List<Status> statuslist = new ArrayList<Status>();
+    private List<Qualification> qualificationlist = new ArrayList<Qualification>();
+    private List<Designation> designationlist = new ArrayList<Designation>();
 
-    public List<Candidate> getAllcandidates() {
-        return allcandidates;
+    public List<Qualification> getQualificationlist() {
+        return qualificationlist;
     }
 
-    public void setAllcandidates(List<Candidate> allcandidates) {
-        this.allcandidates = allcandidates;
+    public void setQualificationlist(List<Qualification> qualificationlist) {
+        this.qualificationlist = qualificationlist;
+    }
+
+    public List<Designation> getDesignationlist() {
+        return designationlist;
+    }
+
+    public void setDesignationlist(List<Designation> designationlist) {
+        this.designationlist = designationlist;
+    }
+
+    public List<Status> getStatuslist() {
+        return statuslist;
+    }
+
+    public void setStatuslist(List<Status> statuslist) {
+        this.statuslist = statuslist;
+    }
+
+    public List<Candidate> getPaidcandidatelist() {
+        return paidcandidatelist;
+    }
+
+    public void setPaidcandidatelist(List<Candidate> paidcandidatelist) {
+        this.paidcandidatelist = paidcandidatelist;
+    }
+
+    public List<Candidate> getUnpaidcandidatelist() {
+        return unpaidcandidatelist;
+    }
+
+    public void setUnpaidcandidatelist(List<Candidate> unpaidcandidatelist) {
+        this.unpaidcandidatelist = unpaidcandidatelist;
+    }
+
+    public List<Candidate> getSelectedcandidatelist() {
+        return selectedcandidatelist;
+    }
+
+    public void setSelectedcandidatelist(List<Candidate> selectedcandidatelist) {
+        this.selectedcandidatelist = selectedcandidatelist;
+    }
+
+    public List<Candidate> getRejectedcandidatelist() {
+        return rejectedcandidatelist;
+    }
+
+    public void setRejectedcandidatelist(List<Candidate> rejectedcandidatelist) {
+        this.rejectedcandidatelist = rejectedcandidatelist;
+    }
+
+    public List<Candidate> getBlockedcandidatelist() {
+        return blockedcandidatelist;
+    }
+
+    public void setBlockedcandidatelist(List<Candidate> blockedcandidatelist) {
+        this.blockedcandidatelist = blockedcandidatelist;
+    }
+
+    public List<Candidate> getNotinterestedcandidatelist() {
+        return notinterestedcandidatelist;
+    }
+
+    public void setNotinterestedcandidatelist(List<Candidate> notinterestedcandidatelist) {
+        this.notinterestedcandidatelist = notinterestedcandidatelist;
     }
 
     public String getFirstname() {
@@ -180,12 +258,12 @@ public class CandidateAction {
         this.receiptno = receiptno;
     }
 
-    public String getPstatusstring() {
-        return pstatusstring;
+    public String getStatusname() {
+        return statusname;
     }
 
-    public void setPstatusstring(String pstatusstring) {
-        this.pstatusstring = pstatusstring;
+    public void setStatusname(String statusname) {
+        this.statusname = statusname;
     }
 
     public String getStatusstring() {
@@ -258,46 +336,192 @@ public class CandidateAction {
         return SUCCESS;
     }
 
-    public String registerCandidate() throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date dateofbirths = sdf.parse(dateofbirth);
-//        Date receiptissuestrings = sdf.parse(receiptissuestring);
-//        Date receiptexpirystrings = sdf.parse(receiptexpirystring);
-        Candidate candidate = new Candidate();
-        candidate.setFirstname(firstname);
-        candidate.setLastname(lastname);
-        candidate.setMobileno(mobileno);
-        candidate.setGender(gender);
-        candidate.setEmailid(emailid);
-        candidate.setDateofbirth(dateofbirths);
-        candidate.setPassportno(passportno);
-        candidate.setReligion(religion);
-        candidate.setQualification(qualification);
-        candidate.setDesignation((designation));
-        candidate.setTotalexp(totalexp);
-        candidate.setGulfexp(gulfexp);
-        candidate.setIndianexp(indianexp);
-//        candidate.setApplicationid(applicationid);
+    private String getApplicationNo() {
+        Date d = new Date();
+        // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        //String todaydate = sdf.format(d).replaceAll("-", "");
+        List<Candidate> allcandidatelist = mdao.getAllCandidatesByDesc();
+        if (allcandidatelist.isEmpty()) {
+            String applicantid = "HM4" + "0001";
+            return applicantid;
 
-        if (receiptno != null) {
-            candidate.setReceiptno(receiptno);
-            candidate.setPstatusid(mdao.getPaidstatusbyId(pstatusstring));
-            candidate.setStatusid(mdao.getStatusbyId(statusstring));
-//        candidate.setReceiptissuedate(receiptissuestrings);
-//        candidate.setReceiptexpirydate(receiptexpirystrings);
+        } else {
+            String lastrecord = allcandidatelist.get(0).getApplicantid().substring(0, 3);
+            String repstring = allcandidatelist.get(0).getApplicantid().substring(4, 7);
+
+            Integer updatednumber = Integer.parseInt(repstring) + 1;
+            DecimalFormat hdg = new DecimalFormat("0000");
+            String abc = hdg.format(updatednumber);
+            return (lastrecord + abc).toString();
         }
+    }
+    private Boolean addstatus;
 
-        candidate.setAddress(address);
-        candidate.setCountry(country);
-        candidate.setState(state);
-        candidate.setCity(city);
-        mdao.addCandidate(candidate);
-        allcandidates();
+    public Boolean getAddstatus() {
+        return addstatus;
+    }
+
+    public void setAddstatus(Boolean addstatus) {
+        this.addstatus = addstatus;
+    }
+    private Candidate candidateobj;
+
+    public Candidate getCandidateobj() {
+        return candidateobj;
+    }
+
+    public void setCandidateobj(Candidate candidateobj) {
+        this.candidateobj = candidateobj;
+    }
+
+    public String toRegisterCandidate() {
+        qualificationlist = mdao.getAllQualifications();
+        designationlist = mdao.getAllDesignations();
         return SUCCESS;
     }
+
+    public String registerCandidate() throws ParseException, MessagingException {
+        String returnvalue = null;
+        candidateobj = mdao.getCandidatebyPassportNo(passportno);
+        if (candidateobj == null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date dateofbirths = sdf.parse(dateofbirth);
+//        Date receiptissuestrings = sdf.parse(receiptissuestring);
+//        Date receiptexpirystrings = sdf.parse(receiptexpirystring);
+            Candidate candidate = new Candidate();
+            candidate.setFirstname(firstname);
+            candidate.setLastname(lastname);
+            candidate.setMobileno(mobileno);
+            candidate.setGender(gender);
+            candidate.setEmailid(emailid);
+            candidate.setDateofbirth(dateofbirths);
+            candidate.setPassportno(passportno);
+            candidate.setReligion(religion);
+            candidate.setQualification(qualification);
+            candidate.setDesignation((designation));
+            candidate.setTotalexp(totalexp);
+            candidate.setGulfexp(gulfexp);
+            candidate.setIndianexp(indianexp);
+            candidate.setApplicantid(getApplicationNo());
+            candidate.setStatusid(mdao.getStatusbyName("Un-Paid"));
+            candidate.setAddress(address);
+            candidate.setCountry(country);
+            candidate.setState(state);
+            candidate.setCity(city);
+            candidate.setCreateddate(new Date());
+            mdao.addCandidate(candidate);
+            String subj = "Hi !" + candidate.getFirstname() + " Welcome To Hyderabad Manpower";
+            String content = "You Are Registered Successfully!. Your Applicant ID is " + candidate.getApplicantid();
+            MailSender.sendMail1(candidate.getEmailid(), subj, content, "");
+            getAllUnPaidCandidates();
+            returnvalue = "success";
+            addstatus = true;
+        } else {
+            returnvalue = "failure";
+            addstatus = false;
+        }
+        return returnvalue;
+    }
+    private String candidateid;
+
+    public String getCandidateid() {
+        return candidateid;
+    }
+
+    public void setCandidateid(String candidateid) {
+        this.candidateid = candidateid;
+    }
+
+    public String toeditStatus() {
+        mdao.getCandidatebyId(candidateid);
+        statuslist = mdao.getAllStatus();
+        return SUCCESS;
+    }
+
+    public String toeditCandidate() {
+        mdao.getCandidatebyId(candidateid);
+        qualificationlist = mdao.getAllQualifications();
+        designationlist = mdao.getAllDesignations();
+        return SUCCESS;
+    }
+    private String statusid;
+
+    public String getStatusid() {
+        return statusid;
+    }
+
+    public void setStatusid(String statusid) {
+        this.statusid = statusid;
+    }
+    private Boolean statusmsg;
+
+    public Boolean getStatusmsg() {
+        return statusmsg;
+    }
+
+    public void setStatusmsg(Boolean statusmsg) {
+        this.statusmsg = statusmsg;
+    }
     
-     public String allcandidates(){
-     allcandidates=mdao.getAllCandidates();
-    return SUCCESS;
+    public String updateStatus() {
+        candidateobj = mdao.getCandidatebyId(candidateid);
+        candidateobj.setStatusid(mdao.getStatusbyId(statusid));
+        mdao.updateCandidateStatus(candidateobj);
+        getAllUnPaidCandidates();
+        statusmsg=true;
+        return SUCCESS;
+    }
+     private Boolean updatestatus;
+
+    public Boolean getUpdatestatus() {
+        return updatestatus;
+    }
+
+    public void setUpdatestatus(Boolean updatestatus) {
+        this.updatestatus = updatestatus;
+    }
+     
+    public String updateCandidate() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date receiptissuedate = sdf.parse(receiptissuestring);
+        Date receiptexpirydate = sdf.parse(receiptexpirystring);
+        candidateobj = mdao.getCandidatebyId(candidateid);
+        candidateobj.setReceiptno(receiptno);
+        candidateobj.setReceiptissuedate(receiptissuedate);
+        candidateobj.setReceiptexpirydate(receiptexpirydate);
+        mdao.updateCandidate(candidateobj);
+//        getAllUnPaidCandidates();
+        updatestatus=true;
+        return SUCCESS;
+    }
+
+    public String getAllUnPaidCandidates() {
+        unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
+        return SUCCESS;
+    }
+
+    public String getAllPaidCandidates() {
+        paidcandidatelist = mdao.getAllCandidatesByStatusname("Paid");
+        return SUCCESS;
+    }
+
+    public String getAllSelectedCandidates() {
+        selectedcandidatelist = mdao.getAllCandidatesByStatusname("Selected");
+        return SUCCESS;
+    }
+
+    public String getAllRejectedCandidates() {
+        rejectedcandidatelist = mdao.getAllCandidatesByStatusname("Rejected");
+        return SUCCESS;
+    }
+
+    public String getAllBlockedCandidates() {
+        blockedcandidatelist = mdao.getAllCandidatesByStatusname("Blocked");
+        return SUCCESS;
+    }
+
+    public String getAllNotInterestedCandidates() {
+        notinterestedcandidatelist = mdao.getAllCandidatesByStatusname("Not-Interested");
+        return SUCCESS;
     }
 }

@@ -27,9 +27,8 @@ public class Candidate {
     private String totalexp;
     private String gulfexp;
     private String indianexp;
-    private String applicationid;
+    private String applicantid;
     private String receiptno;
-    private PaidStatuses pstatusid;
     private Status statusid;
     private Date receiptissuedate;
     private Date receiptexpirydate;
@@ -37,6 +36,8 @@ public class Candidate {
     private String country; 
     private String state;
     private String city;
+    private Date createddate;
+    
     public Candidate() {
         
     }
@@ -87,6 +88,14 @@ public class Candidate {
 
     public void setDateofbirth(Date dateofbirth) {
         this.dateofbirth = dateofbirth;
+    }
+
+    public Date getCreateddate() {
+        return createddate;
+    }
+
+    public void setCreateddate(Date createddate) {
+        this.createddate = createddate;
     }
 
    
@@ -157,13 +166,15 @@ public class Candidate {
         this.indianexp = indianexp;
     }
 
-    public String getApplicationid() {
-        return applicationid;
+    public String getApplicantid() {
+        return applicantid;
     }
 
-    public void setApplicationid(String applicationid) {
-        this.applicationid = applicationid;
+    public void setApplicantid(String applicantid) {
+        this.applicantid = applicantid;
     }
+
+  
     
     public String getReceiptno() {
         return receiptno;
@@ -173,13 +184,6 @@ public class Candidate {
         this.receiptno = receiptno;
     }
 
-    public PaidStatuses getPstatusid() {
-        return pstatusid;
-    }
-
-    public void setPstatusid(PaidStatuses pstatusid) {
-        this.pstatusid = pstatusid;
-    }
 
     public Status getStatusid() {
         return statusid;

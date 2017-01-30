@@ -7,6 +7,7 @@ package com.hydadmin.actions;
 
 import com.hydadmin.dao.MastersDAO;
 import com.hydadmin.pojos.ActiveStatus;
+import com.hydadmin.pojos.Candidate;
 import com.hydadmin.pojos.Manager;
 import com.hydadmin.pojos.Qualification;
 import static com.opensymphony.xwork2.Action.SUCCESS;
@@ -42,10 +43,28 @@ public class ManagerAction extends ActionSupport implements SessionAware {
     private List<Manager> managerlist = new ArrayList<Manager>();
     private List<Qualification> qualificationlist = new ArrayList<Qualification>();
     private List<ActiveStatus> activestatuslist = new ArrayList<ActiveStatus>();
-
+     private List<Candidate> unpaidcandidatelist = new ArrayList<Candidate>();
     private Map sessionmap;
     private Boolean displaymsg;
+    private Boolean addstatus;
 
+    public List<Candidate> getUnpaidcandidatelist() {
+        return unpaidcandidatelist;
+    }
+
+    public void setUnpaidcandidatelist(List<Candidate> unpaidcandidatelist) {
+        this.unpaidcandidatelist = unpaidcandidatelist;
+    }
+    
+    public Boolean getAddstatus() {
+        return addstatus;
+    }
+    
+    public void setAddstatus(Boolean addstatus) {
+        this.addstatus = addstatus;
+    }
+    
+    
     public Boolean getDisplaymsg() {
         return displaymsg;
     }
@@ -218,6 +237,7 @@ public class ManagerAction extends ActionSupport implements SessionAware {
                 sessionmap.put("managerln", manager.getLastname());
                 sessionmap.put("mobile", manager.getMobileno());
                 displaymsg = true;
+                unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
                 returnvalue = "success";
             }
 
@@ -271,6 +291,7 @@ public class ManagerAction extends ActionSupport implements SessionAware {
         manager.setCity(city);
         manager.setStatusid(mdao.getActiveStatusbyId(statusstring));
         mdao.addManager(manager);
+        addstatus=true;
         getAllManagers();
         return SUCCESS;
     }

@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -29,22 +29,40 @@
             });
 
         </script>
-    
-        <script src="http://iamrohit.in/lab/js/location.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $("#datepicker1").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker('update', new Date());
+                ;
+            });
+
+        </script>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <script src="../js/location.js"></script>
 
     </head>
 
 
     <body>
-       
 
+        <s:if test="addstatus==false">
+            <div class="col-md-6 alert alert-warning fade in w3-animate-right" style="">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Registration Failed!</strong> Candidate already registered with same Passport No.
+            </div>
+        </s:if>
+        <div class="clearfix"></div>
         <div class="container" >
             <div class="col-md-5">
             </div>
-            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/register" method="post">
+            <form class="form-horizontal"  action="${pagContext.request.contextPath}/hydadmin/pages/add-candidate" method="post">
+
+
                 <div class="form-group">
                     <div class="col-md-3">
-                        <h2>Register form</h2>
+                        <h2>Add Candidate</h2>
                     </div>
                     <label class="control-label col-md-4" for="firstName">First Name</label>
                     <div class="col-md-4">
@@ -178,6 +196,7 @@
 
                 <div class="row">
                     <div class="form-actions col-md-offset-6">
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-unpaid-candidates"  class="btn btn-warning btn-sm">Cancel</a>
                         <input type="submit" value="Register" class="btn btn-primary btn-sm">
                     </div>
                 </div>
@@ -185,5 +204,5 @@
             </form>
 
         </div>
-   
+
 </html>	

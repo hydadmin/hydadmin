@@ -37,6 +37,15 @@
 
         <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
         <link href="${pageContext.request.contextPath}/css/themes/all-themes.css" rel="stylesheet" />
+        <style>
+            .w3-animate-right{position:relative;-webkit-animation:animateright 0.4s;animation:animateright 0.4s}
+            @-webkit-keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+            @keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}} .w3-animate-right {
+                position: relative;
+                -webkit-animation: animateright 0.4s;
+                animation: animateright 0.4s;
+            }
+        </style>
     </head>
 
     <body class="theme-red">
@@ -61,10 +70,19 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix" style="min-height: 500px">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
                         <div class="card">
+                            <s:if test="displaymsg==true">
+                                <div class="col-md-3 alert alert-success fade in w3-animate-right" style="">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong> Login Successfully!</strong>
+                                </div>
+                            </s:if>
+                            <div class="clearfix"></div>
                             <div class="header">
                                 <h2>
-                                    Dashboard
+                                    Un-Paid Candidates
                                 </h2>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
@@ -96,16 +114,20 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="allcandidates" var="ac">
+                                        <s:iterator value="unpaidcandidatelist" var="ac">
                                             <tr>
-                                               <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
+                                                <td><s:property value="#ac.applicantid"/></td>
+                                                <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
                                                 <td><s:property value="#ac.qualification"/></td>
                                                 <td><s:property value="#ac.designation"/></td>
                                                 <td><s:property value="#ac.totalexp"/></td>
                                                 <td><s:property value="#ac.city"/></td>
-                                                <td><a class="btn btn-primary">Approve</a></td>
+                                                <td>
+                                                    <a href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-candidate-${ac.id}" class="btn btn-primary">Edit Details</a>
+                                                    <a style="margin-top: 2px" href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-status-${ac.id}" class="btn btn-primary">Edit Status</a>
+                                                </td>
                                             </tr>
                                         </s:iterator>
                                     </tbody>

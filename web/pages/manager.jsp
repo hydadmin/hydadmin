@@ -60,6 +60,12 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix" style="min-height: 500px">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <s:if test="addstatus==true">
+                            <div class="col-md-3 alert alert-success fade in w3-animate-right" style="">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Manager Added Successfully!</strong>
+                            </div>
+                        </s:if>
                         <div class="card">
                             <div class="header">
                                 <h2>

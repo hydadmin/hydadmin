@@ -43,13 +43,14 @@ public class MastersDAO {
         managerslist = mongoOperation.find(q, Manager.class);
         return managerslist;
     }
-    
-     public Manager getManagerbyId(String editid) {
+
+    public Manager getManagerbyId(String editid) {
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
         Manager managerobj = mongoOperation.findOne(q, Manager.class);
         return managerobj;
     }
+
     public List<Admin> getValidateAdmins(String emailid, String password) {
         Query q = new Query();
         List<Admin> adminlist = new ArrayList<Admin>();
@@ -57,13 +58,14 @@ public class MastersDAO {
         adminlist = mongoOperation.find(q, Admin.class);
         return adminlist;
     }
-    
-     public Admin getAdminbyId(String editid) {
+
+    public Admin getAdminbyId(String editid) {
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
         Admin adminobj = mongoOperation.findOne(q, Admin.class);
         return adminobj;
     }
+
     public List<Recruiter> getValidateRecruiters(String emailid, String password) {
         Query q = new Query();
         List<Recruiter> recruiterlist = new ArrayList<Recruiter>();
@@ -71,14 +73,14 @@ public class MastersDAO {
         recruiterlist = mongoOperation.find(q, Recruiter.class);
         return recruiterlist;
     }
-    
-     public Recruiter getRecruiterbyId(String editid) {
+
+    public Recruiter getRecruiterbyId(String editid) {
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
         Recruiter recruiterobj = mongoOperation.findOne(q, Recruiter.class);
         return recruiterobj;
     }
-     
+
     public String addCandidate(Candidate candidateObj) {
         mongoOperation.save(candidateObj);
         return "success";
@@ -139,6 +141,13 @@ public class MastersDAO {
         return statusobj;
     }
 
+    public Status getStatusbyName(String statusname) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("statusname").is(statusname));
+        Status statusobj = mongoOperation.findOne(q, Status.class);
+        return statusobj;
+    }
+
     public ActiveStatus getActiveStatusbyId(String editid) {
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
@@ -167,8 +176,53 @@ public class MastersDAO {
         return cityobj;
     }
 
+    public Candidate getCandidatebyId(String editid) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("_id").is(new ObjectId(editid)));
+        Candidate candidateobj = mongoOperation.findOne(q, Candidate.class);
+        return candidateobj;
+    }
+    public Candidate getCandidatebyPassportNo(String passportno) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("passportno").is(passportno));
+        Candidate candidateobj = mongoOperation.findOne(q, Candidate.class);
+        return candidateobj;
+    }
+    
+      public String updateCandidateStatus(Candidate candidateobj) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("_id").is(candidateobj.getId()));
+        Update update = new Update();
+        update.set("statusid", candidateobj.getStatusid());
+        mongoOperation.updateFirst(q, update, Candidate.class);
+        return "success";
+    }
+    public String updateCandidate(Candidate candidateobj) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("_id").is(candidateobj.getId()));
+        Update update = new Update();
+        update.set("receiptno", candidateobj.getStatusid());
+        update.set("receiptissuedate", candidateobj.getReceiptissuedate());
+        update.set("receiptexpirydate", candidateobj.getReceiptexpirydate());
+        mongoOperation.updateFirst(q, update, Candidate.class);
+        return "success";
+    }
     public List<Candidate> getAllCandidates() {
         List<Candidate> candidatelist = mongoOperation.findAll(Candidate.class);
+        return candidatelist;
+    }
+
+    public List<Candidate> getAllCandidatesByDesc() {
+        Query q = new Query();
+        q.with(new Sort(Sort.Direction.DESC, "createddate"));
+        List<Candidate> candidatelist = mongoOperation.find(q,Candidate.class);
+        return candidatelist;
+    }
+
+    public List<Candidate> getAllCandidatesByStatusname(String statusname) {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("statusid.statusname").is(statusname));
+        List<Candidate> candidatelist = mongoOperation.find(q, Candidate.class);
         return candidatelist;
     }
 
@@ -210,6 +264,12 @@ public class MastersDAO {
     public List<ActiveStatus> getAllActiveStatus() {
         List<ActiveStatus> activestatuslist = mongoOperation.findAll(ActiveStatus.class);
         return activestatuslist;
+    }
+    public List<Status> getAllStatus() {
+        Query q = new Query();
+        q.addCriteria(Criteria.where("statusname").nin("Paid").andOperator(Criteria.where("statusname").nin("Un-Paid")));
+        List<Status> statuslist = mongoOperation.find(q,Status.class);
+        return statuslist;
     }
 
     public String addQualification(Qualification qualificationObj) {

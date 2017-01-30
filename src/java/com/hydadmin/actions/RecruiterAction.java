@@ -8,6 +8,7 @@ package com.hydadmin.actions;
 import com.hydadmin.dao.MastersDAO;
 import com.hydadmin.pojos.ActiveStatus;
 import com.hydadmin.pojos.Admin;
+import com.hydadmin.pojos.Candidate;
 import com.hydadmin.pojos.Qualification;
 import com.hydadmin.pojos.Recruiter;
 import static com.opensymphony.xwork2.Action.SUCCESS;
@@ -45,7 +46,27 @@ public class RecruiterAction extends ActionSupport implements SessionAware {
     private List<ActiveStatus> activestatuslist = new ArrayList<ActiveStatus>();
     private Map sessionmap;
     private Boolean displaymsg;
+    private Boolean addstatus;
+    private List<Candidate> unpaidcandidatelist = new ArrayList<Candidate>();
 
+    public List<Candidate> getUnpaidcandidatelist() {
+        return unpaidcandidatelist;
+    }
+
+    public void setUnpaidcandidatelist(List<Candidate> unpaidcandidatelist) {
+        this.unpaidcandidatelist = unpaidcandidatelist;
+    }
+    
+    
+    public Boolean getAddstatus() {
+        return addstatus;
+    }
+
+    public void setAddstatus(Boolean addstatus) {
+        this.addstatus = addstatus;
+    }
+    
+    
     public Boolean getDisplaymsg() {
         return displaymsg;
     }
@@ -218,6 +239,7 @@ public class RecruiterAction extends ActionSupport implements SessionAware {
                 sessionmap.put("recruiterln", recruiter.getLastname());
                 sessionmap.put("mobileno", recruiter.getMobileno());
                 displaymsg = true;
+                 unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
                 returnvalue = "success";
             }
 
@@ -254,6 +276,7 @@ public class RecruiterAction extends ActionSupport implements SessionAware {
         recruiter.setCity(city);
         recruiter.setStatusid(mdao.getActiveStatusbyId(statusstring));
         mdao.addRecruiter(recruiter);
+        addstatus=true;
         getAllRecruiters();
         return SUCCESS;
     }

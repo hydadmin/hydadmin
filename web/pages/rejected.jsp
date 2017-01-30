@@ -96,9 +96,9 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="allcandidates" var="ac">
+                                        <s:iterator value="rejectedcandidatelist" var="ac">
                                             <tr>
-                                                <td></td>
+                                                <td><s:property value="#ac.applicantid"/></td>
                                                 <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
@@ -106,7 +106,7 @@
                                                 <td><s:property value="#ac.designation"/></td>
                                                 <td><s:property value="#ac.totalexp"/></td>
                                                 <td><s:property value="#ac.city"/></td>
-                                                <td><a class="btn btn-primary">Approve</a></td>
+                                               <td><a href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-status-${ac.id}" class="btn btn-primary">Edit Status</a></td>
                                             </tr>
                                         </s:iterator>
                                     </tbody>

@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : candidates
     Created on : Jan 10, 2017, 10:58:00 AM
@@ -12,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Candidates</title>
+        <title>Un-Paid Candidates</title>
         <!-- Favicon-->
         <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 
@@ -37,6 +38,7 @@
 
         <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
         <link href="${pageContext.request.contextPath}/css/themes/all-themes.css" rel="stylesheet" />
+        
     </head>
 
     <body class="theme-red">
@@ -61,10 +63,30 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix" style="min-height: 500px">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      
                         <div class="card">
+                              <s:if test="addstatus==true">
+                            <div class="col-md-3 alert alert-success fade in w3-animate-right" style="">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Candidate Registered Successfully!</strong>
+                            </div>
+                        </s:if>
+                        <s:if test="statusmsg==true">
+                            <div class="col-md-3 alert alert-success fade in w3-animate-right" style="">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Status Updated Successfully!</strong>
+                            </div>
+                        </s:if>
+                        <s:if test="updatestatus==true">
+                            <div class="col-md-3 alert alert-success fade in w3-animate-right" style="">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Status Updated Successfully!</strong>
+                            </div>
+                        </s:if>
+                            <div class="clearfix"></div>
                             <div class="header">
                                 <h2>
-                                    Candidates
+                                    Un-Paid Candidates
                                 </h2>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
@@ -96,9 +118,9 @@
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="allcandidates" var="ac">
+                                        <s:iterator value="unpaidcandidatelist" var="ac">
                                             <tr>
-                                                <td></td>
+                                                <td><s:property value="#ac.applicantid"/></td>
                                                 <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
@@ -106,7 +128,10 @@
                                                 <td><s:property value="#ac.designation"/></td>
                                                 <td><s:property value="#ac.totalexp"/></td>
                                                 <td><s:property value="#ac.city"/></td>
-                                                <td><a class="btn btn-primary">Approve</a></td>
+                                                <td>
+                                                    <a href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-candidate-${ac.id}" class="btn btn-primary">Edit Details</a><br>
+                                                    <a style="margin-top: 2px" href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-status-${ac.id}" class="btn btn-primary">Edit Status</a>
+                                                </td>
                                             </tr>
                                         </s:iterator>
                                     </tbody>

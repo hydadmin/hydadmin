@@ -28,15 +28,45 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pagContext.request.contextPath}/hydadmin/pages/registration.jsp">
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-candidate">
                             <i class="material-icons">add</i>
                             <span>New Registration</span>
                         </a>
                     </li>
                     <li>
-                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-candidates">
-                            <i class="material-icons">add</i>
-                            <span>Candidates</span>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-paid-candidates">
+                            <i class="material-icons">donut_large</i>
+                            <span>Paid Candidates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-unpaid-candidates">
+                            <i class="material-icons">donut_large</i>
+                            <span>Un-Paid Candidates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-selected-candidates">
+                            <i class="material-icons">donut_large</i>
+                            <span>Selected Candidates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-rejected-candidates">
+                            <i class="material-icons">donut_large</i>
+                            <span>Rejected Candidates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-blocked-candidates">
+                            <i class="material-icons">donut_large</i>
+                            <span>Blocked Candidates</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${pagContext.request.contextPath}/hydadmin/pages/to-not-interested-candidates">
+                            <i class="material-icons">donut_large</i>
+                            <span>Not-Interested Candidates</span>
                         </a>
                     </li>
                  

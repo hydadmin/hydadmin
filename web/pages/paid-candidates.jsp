@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Recruiters</title>
+        <title>Paid Candidates</title>
         <!-- Favicon-->
         <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 
@@ -61,19 +61,11 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix" style="min-height: 500px">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <s:if test="addstatus==true">
-                            <div class="col-md-3 alert alert-success fade in w3-animate-right" style="">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Recruiter Added Successfully!</strong>
-                            </div>
-                        </s:if>
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                    Recruiters
+                                   Paid Candidates
                                 </h2>
-                                <br>
-                                <a href="${pagContext.request.contextPath}/hydadmin/pages/to-add-recruiter" class="btn btn-info">Add Recruiter</a>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -91,30 +83,30 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
+                                            <th>Applicant ID</th>
                                             <th>Name</th>
-                                            <th>Mobile NO</th>
-                                            <th>Email ID</th>
-                                            <th>DOB</th>
+                                            <th>Mobile No</th>
+                                            <th>Passport No</th>
                                             <th>Qualification</th>
-                                            <th>State</th>                                              
-                                            <th>City</th>                                              
-                                            <th>Actions</th>                                              
+                                            <th>Designation</th>
+                                            <th>Total Exp</th>
+                                            <th>City</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <s:iterator value="recruiterlist" var="rl">
+                                        <s:iterator value="paidcandidatelist" var="ac">
                                             <tr>
-
-                                                <td><s:property value="#rl.firstname"/> <s:property value="#rl.lastname"/> </td>
-                                                <td><s:property value="#rl.mobileno"/></td>
-                                                <td><s:property value="#rl.emailid"/></td>
-                                                <td><s:property value="#rl.dateofbirth"/></td>
-                                                <td><s:property value="#rl.qualificationid.qualificationname"/></td>
-                                                <td><s:property value="#rl.state"/></td>
-                                                <td><s:property value="#rl.city"/></td>
-                                                <td><a class="btn btn-primary">Edit</a></td>
-
+                                                <td><s:property value="#ac.applicantid"/></td>
+                                                <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
+                                                <td><s:property value="#ac.mobileno"/></td>
+                                                <td><s:property value="#ac.passportno"/></td>
+                                                <td><s:property value="#ac.qualification"/></td>
+                                                <td><s:property value="#ac.designation"/></td>
+                                                <td><s:property value="#ac.totalexp"/></td>
+                                                <td><s:property value="#ac.city"/></td>
+                                               <td><a href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-status-${ac.id}" class="btn btn-primary">Edit Status</a></td>
                                             </tr>
                                         </s:iterator>
                                     </tbody>
