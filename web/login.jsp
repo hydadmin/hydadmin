@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Sign In | Bootstrap Based Admin Template - Material Design</title>
+        <title>Hyderabad Manpower</title>
         <!-- Favicon-->
         <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 

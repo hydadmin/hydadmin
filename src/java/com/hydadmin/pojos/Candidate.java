@@ -22,8 +22,8 @@ public class Candidate {
     private Date dateofbirth;
     private String passportno;
     private String religion;
-    private String qualification;
-    private String designation;
+    private Qualification qualificationid;
+    private Designation designationid;
     private String totalexp;
     private String gulfexp;
     private String indianexp;
@@ -124,24 +124,23 @@ public class Candidate {
         this.religion = religion;
     }
 
-    public String getQualification() {
-        return qualification;
+    public Qualification getQualificationid() {
+        return qualificationid;
     }
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
+    public void setQualificationid(Qualification qualificationid) {
+        this.qualificationid = qualificationid;
     }
 
-    public String getDesignation() {
-        return designation;
+    public Designation getDesignationid() {
+        return designationid;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setDesignationid(Designation designationid) {
+        this.designationid = designationid;
     }
 
-   
-
+ 
     public String getTotalexp() {
         return totalexp;
     }

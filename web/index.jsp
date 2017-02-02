@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Dashboard</title>
+        <title>Hyderabad Manpower</title>
         <!-- Favicon-->
         <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
 
@@ -97,7 +97,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="body">
+                            <div class="body  table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
@@ -120,8 +120,8 @@
                                                 <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
-                                                <td><s:property value="#ac.qualification"/></td>
-                                                <td><s:property value="#ac.designation"/></td>
+                                                <td><s:property value="#ac.qualificationid.qualificationname"/></td>
+                                                <td><s:property value="#ac.designationid.designationame"/></td>
                                                 <td><s:property value="#ac.totalexp"/></td>
                                                 <td><s:property value="#ac.city"/></td>
                                                 <td>

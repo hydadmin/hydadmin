@@ -41,8 +41,8 @@ public class CandidateAction {
     private String dateofbirth;
     private String passportno;
     private String religion;
-    private String qualification;
-    private String designation;
+    private String qualificationstring;
+    private String designationstring;
     private String totalexp;
     private String gulfexp;
     private String indianexp;
@@ -202,21 +202,23 @@ public class CandidateAction {
         this.religion = religion;
     }
 
-    public String getQualification() {
-        return qualification;
+    public String getQualificationstring() {
+        return qualificationstring;
     }
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
+    public void setQualificationstring(String qualificationstring) {
+        this.qualificationstring = qualificationstring;
     }
 
-    public String getDesignation() {
-        return designation;
+    public String getDesignationstring() {
+        return designationstring;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setDesignationstring(String designationstring) {
+        this.designationstring = designationstring;
     }
+
+    
 
     public String getTotalexp() {
         return totalexp;
@@ -333,6 +335,8 @@ public class CandidateAction {
     MastersDAO mdao = new MastersDAO();
 
     public String toregister() {
+        designationlist=mdao.getAllDesignations();
+        qualificationlist=mdao.getAllQualifications();
         return SUCCESS;
     }
 
@@ -382,7 +386,7 @@ public class CandidateAction {
 
     public String registerCandidate() throws ParseException, MessagingException {
         String returnvalue = null;
-        candidateobj = mdao.getCandidatebyPassportNo(passportno);
+        Candidate candidateobj = mdao.getCandidatebyPassportNo(passportno);
         if (candidateobj == null) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date dateofbirths = sdf.parse(dateofbirth);
@@ -397,8 +401,8 @@ public class CandidateAction {
             candidate.setDateofbirth(dateofbirths);
             candidate.setPassportno(passportno);
             candidate.setReligion(religion);
-            candidate.setQualification(qualification);
-            candidate.setDesignation((designation));
+            candidate.setQualificationid(mdao.getQualificationbyId(qualificationstring));
+            candidate.setDesignationid(mdao.getDesignationbyId(designationstring));
             candidate.setTotalexp(totalexp);
             candidate.setGulfexp(gulfexp);
             candidate.setIndianexp(indianexp);
@@ -467,7 +471,7 @@ public class CandidateAction {
         candidateobj = mdao.getCandidatebyId(candidateid);
         candidateobj.setStatusid(mdao.getStatusbyId(statusid));
         mdao.updateCandidateStatus(candidateobj);
-        getAllUnPaidCandidates();
+        getAllPaidCandidates();
         statusmsg=true;
         return SUCCESS;
     }
@@ -489,8 +493,9 @@ public class CandidateAction {
         candidateobj.setReceiptno(receiptno);
         candidateobj.setReceiptissuedate(receiptissuedate);
         candidateobj.setReceiptexpirydate(receiptexpirydate);
+        candidateobj.setStatusid(mdao.getStatusbyName("Paid"));
         mdao.updateCandidate(candidateobj);
-//        getAllUnPaidCandidates();
+        getAllPaidCandidates();
         updatestatus=true;
         return SUCCESS;
     }

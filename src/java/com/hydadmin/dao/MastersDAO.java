@@ -201,9 +201,10 @@ public class MastersDAO {
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(candidateobj.getId()));
         Update update = new Update();
-        update.set("receiptno", candidateobj.getStatusid());
+        update.set("receiptno", candidateobj.getReceiptno());
         update.set("receiptissuedate", candidateobj.getReceiptissuedate());
         update.set("receiptexpirydate", candidateobj.getReceiptexpirydate());
+        update.set("statusid", candidateobj.getStatusid());
         mongoOperation.updateFirst(q, update, Candidate.class);
         return "success";
     }

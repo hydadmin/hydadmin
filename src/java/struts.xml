@@ -60,7 +60,7 @@
             <result name="success">edit-status.jsp</result>
         </action>
         <action name="update-status" class="com.hydadmin.actions.CandidateAction" method="updateStatus">
-            <result name="success">unpaid-candidates.jsp</result>
+            <result name="success">paid-candidates.jsp</result>
         </action>
         <action name="update-candidate" class="com.hydadmin.actions.CandidateAction" method="updateCandidate">
             <result name="success">paid-candidates.jsp</result>

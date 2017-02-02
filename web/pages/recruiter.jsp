@@ -87,7 +87,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="body">
+                            <div class="body  table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>

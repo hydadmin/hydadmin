@@ -121,27 +121,25 @@
                         <input type="text" class="form-control" name="religion" placeholder="Religion">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-4" for="pwd">Education</label>
+               <div class="form-group">
+                    <label class="control-label col-md-4" for="pwd">Qualification</label>
                     <div class="col-md-4">          
-                        <select  name="qualification" class="form-control input-sm">
-                            <option value="">Select</option>
-                            <option value="BSC">BSC</option>
-                            <option value="BTECH">BTECH</option>
-                            <option value="MCA">MCA</option>
-                            <option value="BCOM">BCOM</option>
-                            <option value="DIPLOMA">DIPLOMA</option> 
-                            <option value="ITI">ITI</option> 
-                            <option value="Other">Other</option> 
+                       <select required="true" class="form-control" name="qualificationstring" >
+                            <option value="">Select One</option>
+                            <s:iterator value="qualificationlist" var="ql">
+                                <option value="${ql.id}">${ql.qualificationname}</option>
+                            </s:iterator>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-4" for="pwd">Designation</label>
                     <div class="col-md-4">          
-                        <select  name="designation" class="form-control input-sm">
-                            <option value="">Select</option>
-                            <option value="Safety Officer">Safety Officer</option>
+                        <select required="true" class="form-control" name="designationstring" >
+                            <option value="">Select One</option>
+                            <s:iterator value="designationlist" var="dl">
+                                <option value="${dl.id}">${dl.designationame}</option>
+                            </s:iterator>
                         </select>
                     </div>
                 </div>

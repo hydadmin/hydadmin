@@ -237,7 +237,7 @@ public class ManagerAction extends ActionSupport implements SessionAware {
                 sessionmap.put("managerln", manager.getLastname());
                 sessionmap.put("mobile", manager.getMobileno());
                 displaymsg = true;
-                unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
+                getAllUnPaidCandidates();
                 returnvalue = "success";
             }
 
@@ -300,5 +300,9 @@ public class ManagerAction extends ActionSupport implements SessionAware {
         managerlist = mdao.getAllManagers();
         return SUCCESS;
     }
-
+    
+      public String getAllUnPaidCandidates() {
+        unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
+        return SUCCESS;
+    }
 }

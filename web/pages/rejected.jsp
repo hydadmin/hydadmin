@@ -64,7 +64,7 @@
                         <div class="card">
                             <div class="header">
                                 <h2>
-                                  Rejected Candidates
+                                    Rejected Candidates
                                 </h2>
                                 <ul class="header-dropdown m-r--5">
                                     <li class="dropdown">
@@ -79,7 +79,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="body">
+                            <div class="body  table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
@@ -102,11 +102,11 @@
                                                 <td><s:property value="#ac.firstname"/> <s:property value="#ac.lastname"/></td>
                                                 <td><s:property value="#ac.mobileno"/></td>
                                                 <td><s:property value="#ac.passportno"/></td>
-                                                <td><s:property value="#ac.qualification"/></td>
-                                                <td><s:property value="#ac.designation"/></td>
+                                                <td><s:property value="#ac.qualificationid.qualificationname"/></td>
+                                                <td><s:property value="#ac.designationid.designationame"/></td>
                                                 <td><s:property value="#ac.totalexp"/></td>
                                                 <td><s:property value="#ac.city"/></td>
-                                               <td><a href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-status-${ac.id}" class="btn btn-primary">Edit Status</a></td>
+                                                <td><a href="${pagContext.request.contextPath}/hydadmin/pages/to-edit-status-${ac.id}" class="btn btn-primary">Edit Status</a></td>
                                             </tr>
                                         </s:iterator>
                                     </tbody>

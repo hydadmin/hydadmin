@@ -239,7 +239,7 @@ public class RecruiterAction extends ActionSupport implements SessionAware {
                 sessionmap.put("recruiterln", recruiter.getLastname());
                 sessionmap.put("mobileno", recruiter.getMobileno());
                 displaymsg = true;
-                 unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
+                getAllUnPaidCandidates();
                 returnvalue = "success";
             }
 
@@ -283,6 +283,11 @@ public class RecruiterAction extends ActionSupport implements SessionAware {
 
     public String getAllRecruiters() {
         recruiterlist = mdao.getAllRecruiters();
+        return SUCCESS;
+    }
+    
+      public String getAllUnPaidCandidates() {
+        unpaidcandidatelist = mdao.getAllCandidatesByStatusname("Un-Paid");
         return SUCCESS;
     }
 }
